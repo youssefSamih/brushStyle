@@ -1,8 +1,11 @@
+import Layout from 'ui/Layout';
 
-const Home = () => {
+const Index = () => {
   return (
-    <div>hello</div>
-  )
-}
+    <Layout variant="secondary">
+      <div>hello</div>
+    </Layout>
+  );
+};
 
-export default Home
+export default Index;

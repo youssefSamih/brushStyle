@@ -7,7 +7,7 @@ import Document, {
   NextScript,
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
-import { randomBytes } from 'node:crypto';
+import { randomBytes } from 'crypto';
 
 const MyDocument = ({ nonce }: any) => {
   return (
@@ -40,11 +40,13 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
           {initialProps.styles}
           <style nonce={nonce}>{sheet.instance.toString()}</style>
         </>
-      )
-    }
+      ),
+    };
   } finally {
     sheet.seal();
   }
 };
+
+MyDocument.renderDocument = Document.renderDocument;
 
 export default MyDocument;
