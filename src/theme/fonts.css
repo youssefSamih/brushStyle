@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'Produkt';
+  src: url('./fonts/Produkt-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HCo Gotham SSm';
+  src: url('./fonts/GothamSSm-BlackItalic_Web.woff2') format('woff2'),
+    url('./fonts/GothamSSm-BlackItalic_Web.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+}
