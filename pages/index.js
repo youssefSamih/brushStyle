@@ -1,5 +1,5 @@
 
-const Home = ({ allPostsData }) => {
+const Home = () => {
   return (
     <div>hello</div>
   )
