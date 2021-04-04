@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Acceuil",
+    "href": "/"
+  },
+  {
+    "id": 2,
+    "name": "Login",
+    "href": "/"
+  },
+  {
+    "id": 3,
+    "name": "Signup",
+    "href": "/"
+  }
+]
