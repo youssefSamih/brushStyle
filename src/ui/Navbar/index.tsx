@@ -1,16 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from 'ui/Logo';
-import {
-  ItemListText,
-  ListStyle,
-  NavbarContainer,
-  ItemList,
-  MenuControl,
-} from './style';
+import { NavbarContainer, MenuControl, CloseIconContainer } from './style';
 import { Container } from 'ui/styles';
 import { HeaderProps } from 'ui/interfaces';
-import { MenuClose, MenuIcon } from 'ui/Icons';
+import { Close, MenuClose, MenuIcon } from 'ui/Icons';
+import NavbarLinks from 'ui/NavbarLinks';
+import SideBar from 'ui/Sidebar';
 
 const Navbar = ({ links }: HeaderProps) => {
   const [showSideBar, setShowSideBar] = React.useState<boolean>(false);
@@ -20,15 +16,7 @@ const Navbar = ({ links }: HeaderProps) => {
       <Link href="/">
         <Logo />
       </Link>
-      <ListStyle>
-        {links.map((link) => (
-          <ItemList key={link.id}>
-            <Link href={link.href}>
-              <ItemListText>{link.name}</ItemListText>
-            </Link>
-          </ItemList>
-        ))}
-      </ListStyle>
+      <NavbarLinks {...{ links }} />
       <MenuControl>
         {showSideBar ? (
           <MenuClose onClick={toggle} />
@@ -36,6 +24,12 @@ const Navbar = ({ links }: HeaderProps) => {
           <MenuIcon onClick={toggle} />
         )}
       </MenuControl>
+      <SideBar active={showSideBar} side="right" onClickClose={toggle}>
+        <CloseIconContainer>
+          <Close inactive onClick={toggle} />
+        </CloseIconContainer>
+        <NavbarLinks {...{ links }} forSidebarLinks={true} />
+      </SideBar>
     </NavbarContainer>
   );
 };

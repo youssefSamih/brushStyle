@@ -7,25 +7,6 @@ export const NavbarContainer = styled.nav`
   padding: 0.695rem 1.25rem;
 `;
 
-export const ListStyle = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  margin-left: 20rem;
-  justify-content: flex-end;
-`;
-
-export const ItemList = styled.li`
-  margin-left: 3rem;
-`;
-export const ItemListText = styled.a`
-  color: ${({ theme }) => theme.colors.white};
-  cursor: pointer;
-`;
-
 export const MenuControl = styled.div`
   display: none;
 
@@ -34,4 +15,8 @@ export const MenuControl = styled.div`
     position: absolute;
     right: 10px;
   }
+`;
+
+export const CloseIconContainer = styled.div`
+  padding: 2rem;
 `;

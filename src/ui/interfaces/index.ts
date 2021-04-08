@@ -6,3 +6,6 @@ export interface HeaderProps {
     href: string;
   }[];
 }
+export interface ListStyleProps {
+  forSidebarLinks?: boolean;
+}
