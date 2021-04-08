@@ -25,3 +25,13 @@ export const ItemListText = styled.a`
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
 `;
+
+export const MenuControl = styled.div`
+  display: none;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    display: block;
+    position: absolute;
+    right: 10px;
+  }
+`;
