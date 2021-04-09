@@ -7,11 +7,11 @@
   {
     "id": 2,
     "name": "Login",
-    "href": "/"
+    "href": "/login"
   },
   {
     "id": 3,
     "name": "Signup",
-    "href": "/"
+    "href": "/signup"
   }
 ]
