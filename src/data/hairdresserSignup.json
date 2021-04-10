@@ -1,0 +1,14 @@
+{
+  "sections": [
+    {
+      "widget": "RadioWidget",
+      "label": "Coiffeur indépendante",
+      "column": 6
+    },
+    {
+      "widget": "RadioWidget",
+      "label": "Salon",
+      "column": 6
+    }
+  ]
+}

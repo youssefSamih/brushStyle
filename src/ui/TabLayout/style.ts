@@ -85,7 +85,7 @@ export const TabsControl = styled.div`
 
 export const TabsContent = styled.div`
   width: 100%;
-  padding: 10.25rem 0 5.25rem 0;
+  padding: 2rem 10rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     padding: 7rem 0 3.75rem 0;

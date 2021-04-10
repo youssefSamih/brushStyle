@@ -1,7 +1,7 @@
-import React from 'react';
+// import RenderWidgets from 'core/RenderWidgets';
 
 const User = () => {
-  return <div>User</div>;
+  return <div>{/* <RenderWidgets singleStepWidgets={userSignup} /> */}</div>;
 };
 
 export default User;

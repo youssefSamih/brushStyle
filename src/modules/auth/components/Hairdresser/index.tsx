@@ -1,7 +1,9 @@
 import React from 'react';
+import hairdresserSignup from 'data/hairdresserSignup.json';
+import RenderWidgets from 'core/RenderWidgets';
 
 const Hairdresser = () => {
-  return <div>Hairdresser</div>;
+  return <RenderWidgets singleStepWidgets={hairdresserSignup} />;
 };
 
 export default Hairdresser;

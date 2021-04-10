@@ -14,7 +14,9 @@ const Navbar = ({ links }: HeaderProps) => {
   return (
     <NavbarContainer as={Container}>
       <Link href="/">
-        <Logo />
+        <a>
+          <Logo />
+        </a>
       </Link>
       <NavbarLinks {...{ links }} />
       <MenuControl>
