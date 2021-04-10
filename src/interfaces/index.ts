@@ -10,3 +10,8 @@ export type Tab = {
   title: string;
   content: ReactElement | ElementType | string;
 };
+
+export interface ImageProps {
+  bg?: string;
+  heightInherit?: boolean;
+}

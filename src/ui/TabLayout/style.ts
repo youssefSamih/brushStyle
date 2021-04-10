@@ -44,16 +44,10 @@ export const TabWrapper = styled.div<TabProps>`
 
   @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     margin: 0 1.25rem;
-    p {
-      display: none;
-    }
-    svg {
-      margin: 0 0.625rem;
-    }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    margin: 0 0.5rem;
+    margin: 0;
   }
 `;
 
@@ -88,6 +82,6 @@ export const TabsContent = styled.div`
   padding: 2rem 10rem;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    padding: 7rem 0 3.75rem 0;
+    padding: 2rem 0 3.75rem 0;
   }
 `;

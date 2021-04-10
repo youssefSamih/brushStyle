@@ -5,6 +5,7 @@ import userSignup from 'data/userSignup.json';
 import hairdresserSignup from 'data/hairdresserSignup.json';
 import Layout from 'ui/Layout';
 import MainSignup from 'modules/auth/containers/MainSignup';
+import { ImageContainer } from 'modules/auth/containers/styles';
 
 const Signup = ({
   Headerlinks,
@@ -12,9 +13,11 @@ const Signup = ({
   hairdresserSignup,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <Layout variant="secondary" links={Headerlinks}>
-      <MainSignup {...{ userSignup, hairdresserSignup }} />
-    </Layout>
+    <ImageContainer>
+      <Layout variant="secondary" links={Headerlinks}>
+        <MainSignup {...{ userSignup, hairdresserSignup }} />
+      </Layout>
+    </ImageContainer>
   );
 };
 

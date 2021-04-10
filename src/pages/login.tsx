@@ -4,15 +4,18 @@ import Headerlinks from 'data/Headerlinks.json';
 import loginData from 'data/login.json';
 import Layout from 'ui/Layout';
 import MainLogin from 'modules/auth/containers/MainLogin';
+import { ImageContainer } from 'modules/auth/containers/styles';
 
 const Login = ({
   Headerlinks,
   loginData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   return (
-    <Layout variant="secondary" links={Headerlinks}>
-      <MainLogin {...{ loginData }} />
-    </Layout>
+    <ImageContainer heightInherit>
+      <Layout variant="secondary" links={Headerlinks}>
+        <MainLogin {...{ loginData }} />
+      </Layout>
+    </ImageContainer>
   );
 };
 
