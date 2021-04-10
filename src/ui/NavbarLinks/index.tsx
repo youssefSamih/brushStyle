@@ -9,7 +9,7 @@ const NavbarLinks = ({
 }: HeaderProps & ListStyleProps) => {
   return (
     <ListStyle {...{ forSidebarLinks }}>
-      {links.map((link) => (
+      {links?.map((link) => (
         <ItemList key={link.id} {...{ forSidebarLinks }}>
           <Link href={link.href}>
             <ItemListText {...{ forSidebarLinks }}>{link.name}</ItemListText>
