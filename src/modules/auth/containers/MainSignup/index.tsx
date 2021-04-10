@@ -4,7 +4,7 @@ import User from 'modules/auth/components/User';
 import React from 'react';
 import { Container } from 'ui/styles';
 import TabLayout from 'ui/TabLayout';
-import { MainSignupContainer } from './style';
+import { MainAuthContainer } from '../styles';
 
 const MainSignup = ({ userSignup, hairdresserSignup }: any) => {
   const tabs: Tab[] = [
@@ -19,9 +19,9 @@ const MainSignup = ({ userSignup, hairdresserSignup }: any) => {
   ];
   return (
     <Container>
-      <MainSignupContainer>
-        <TabLayout tabs={tabs}>Signup</TabLayout>
-      </MainSignupContainer>
+      <MainAuthContainer>
+        <TabLayout tabs={tabs} />
+      </MainAuthContainer>
     </Container>
   );
 };

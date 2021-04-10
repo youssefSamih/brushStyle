@@ -1,0 +1,20 @@
+{
+  "sections": [
+    {
+      "widget": "InputWidget",
+      "placeholder": "Email ou votre numero de telephone",
+      "column": 12
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Mot de passe",
+      "type": "password",
+      "column": 12
+    },
+    {
+      "widget": "ButtonWidget",
+      "children": "Envoyer",
+      "column": 12
+    }
+  ]
+}
