@@ -1,7 +1,11 @@
-// import RenderWidgets from 'core/RenderWidgets';
+import RenderWidgets from 'core/RenderWidgets';
 
-const User = () => {
-  return <div>{/* <RenderWidgets singleStepWidgets={userSignup} /> */}</div>;
+const User = ({ userSignup }: any) => {
+  return (
+    <div>
+      <RenderWidgets singleStepWidgets={userSignup} />
+    </div>
+  );
 };
 
 export default User;

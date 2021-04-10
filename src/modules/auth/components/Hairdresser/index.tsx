@@ -1,8 +1,7 @@
 import React from 'react';
-import hairdresserSignup from 'data/hairdresserSignup.json';
 import RenderWidgets from 'core/RenderWidgets';
 
-const Hairdresser = () => {
+const Hairdresser = ({ hairdresserSignup }: any) => {
   return <RenderWidgets singleStepWidgets={hairdresserSignup} />;
 };
 

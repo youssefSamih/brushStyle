@@ -1,0 +1,41 @@
+{
+  "sections": [
+    {
+      "widget": "InputWidget",
+      "placeholder": "Nom",
+      "column": 6
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Prenom",
+      "column": 6
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Email",
+      "column": 6
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Numero de telephone",
+      "column": 6
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Mot de passe",
+      "type": "password",
+      "column": 6
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Confirmer le mot de passe",
+      "type": "password",
+      "column": 6
+    },
+    {
+      "widget": "ButtonWidget",
+      "children": "Envoyer",
+      "column": 12
+    }
+  ]
+}
