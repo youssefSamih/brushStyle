@@ -1,12 +1,12 @@
 import { Section } from 'interfaces';
 import React from 'react';
 import { Item } from 'react-flex-ready';
-import Radio from 'ui/Radio';
+import Input from 'ui/Input';
 
-export const RadioWidget = ({ label, column = 12 }: Section) => {
+export const InputWidget = ({ column, ...rest }: Section) => {
   return (
     <Item col={column}>
-      <Radio {...{ label }} />
+      <Input {...rest} />
     </Item>
   );
 };

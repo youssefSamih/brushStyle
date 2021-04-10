@@ -2,6 +2,8 @@ import { ReactElement, ElementType } from 'react';
 
 export interface Section {
   widget: string;
+  label?: string;
+  column?: number;
 }
 
 export type Tab = {

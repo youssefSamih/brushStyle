@@ -1,12 +1,12 @@
 import { Section } from 'interfaces';
 import React from 'react';
 import { Item } from 'react-flex-ready';
-import Radio from 'ui/Radio';
+import Button from 'ui/Button';
 
-export const RadioWidget = ({ label, column = 12 }: Section) => {
+export const ButtonWidget: React.FC<Section> = ({ children, column }) => {
   return (
     <Item col={column}>
-      <Radio {...{ label }} />
+      <Button>{children}</Button>
     </Item>
   );
 };

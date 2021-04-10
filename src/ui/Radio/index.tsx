@@ -10,7 +10,7 @@ export type refs =
   | undefined;
 
 interface RadioProps {
-  label: string;
+  label?: string;
   selected?: boolean;
   state?: string;
   onClick?: (e: MouseEvent) => void;
