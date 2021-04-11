@@ -1,4 +1,4 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetStaticProps, InferGetServerSidePropsType } from 'next';
 import React from 'react';
 import Headerlinks from 'data/Headerlinks.json';
 import userSignup from 'data/userSignup.json';
@@ -11,7 +11,7 @@ const Signup = ({
   Headerlinks,
   userSignup,
   hairdresserSignup,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
     <ImageContainer>
       <Layout variant="secondary" links={Headerlinks}>
@@ -23,7 +23,7 @@ const Signup = ({
 
 export default Signup;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { Headerlinks, userSignup, hairdresserSignup },
   };

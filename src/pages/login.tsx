@@ -1,4 +1,4 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetStaticProps, InferGetServerSidePropsType } from 'next';
 import React from 'react';
 import Headerlinks from 'data/Headerlinks.json';
 import loginData from 'data/login.json';
@@ -9,7 +9,7 @@ import { ImageContainer } from 'modules/auth/containers/styles';
 const Login = ({
   Headerlinks,
   loginData,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
     <ImageContainer heightInherit>
       <Layout variant="secondary" links={Headerlinks}>
@@ -21,7 +21,7 @@ const Login = ({
 
 export default Login;
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return {
     props: { Headerlinks, loginData },
   };
