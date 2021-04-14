@@ -1,4 +1,3 @@
-import 'react-phone-input-2/lib/style.css';
 import 'theme/fonts.css';
 import theme from 'theme/config';
 import GlobalStyle from 'theme/global-style';

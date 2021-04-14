@@ -2,7 +2,7 @@
   "sections": [
     {
       "widget": "InputWidget",
-      "placeholder": "Email ou votre numero de telephone",
+      "placeholder": "Email",
       "column": 12
     },
     {

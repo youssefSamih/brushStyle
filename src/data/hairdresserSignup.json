@@ -26,8 +26,9 @@
       "column": 6
     },
     {
-      "widget": "InputWidget",
+      "widget": "PhoneWidget",
       "placeholder": "Numero de telephone",
+      "name": "user.phone",
       "column": 6
     },
     {

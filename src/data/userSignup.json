@@ -3,38 +3,45 @@
     {
       "widget": "InputWidget",
       "placeholder": "Nom",
+      "name": "user.name",
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Prenom",
+      "name": "user.lastname",
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Email",
+      "name": "user.email",
       "column": 6
     },
     {
-      "widget": "InputWidget",
+      "widget": "PhoneWidget",
       "placeholder": "Numero de telephone",
+      "name": "user.phone",
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Mot de passe",
+      "name": "user.password",
       "type": "password",
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Confirmer le mot de passe",
+      "name": "user.confirmPassword",
       "type": "password",
       "column": 6
     },
     {
       "widget": "ButtonWidget",
       "children": "Envoyer",
+      "type": "submit",
       "column": 12
     }
   ]

@@ -19,9 +19,11 @@ const MainSignup = ({ userSignup, hairdresserSignup }: any) => {
   ];
   return (
     <Container>
-      <MainAuthContainer>
-        <TabLayout tabs={tabs} />
-      </MainAuthContainer>
+      <div>
+        <MainAuthContainer>
+          <TabLayout tabs={tabs} />
+        </MainAuthContainer>
+      </div>
     </Container>
   );
 };

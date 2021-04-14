@@ -21,6 +21,6 @@
     "typeRoots": ["./types", "./node_modules/@types"],
     "suppressImplicitAnyIndexErrors": true
   },
-  "exclude": ["node_modules", "./types"],
+  "exclude": ["node_modules/@types", "./types"],
   "include": ["**/*.ts", "**/*.tsx"]
 }
