@@ -1,10 +1,16 @@
 import RenderWidgets from 'core/RenderWidgets';
+import { useForm } from 'react-hook-form';
 
 const Login = ({ loginData }: any) => {
+  const useFormMthods = useForm({
+    mode: 'onChange',
+    reValidateMode: 'onSubmit',
+  });
+  const onSubmit = (e: any) => console.log(e);
   return (
-    <div>
-      <RenderWidgets singleStepWidgets={loginData} />
-    </div>
+    <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
+      <RenderWidgets singleStepWidgets={loginData} {...{ useFormMthods }} />
+    </form>
   );
 };
 

@@ -17,6 +17,16 @@ export interface Section {
     value: string;
   }[];
   $if?: ifProps;
+  schema?: {
+    minLength?: number;
+    maxLength?: number;
+    pattern?: string;
+    errorMessage?: {
+      pattern?: string;
+      minLength?: string;
+      maxLength?: string;
+    };
+  };
 }
 export interface ifProps {
   $eq?: string[];

@@ -31,7 +31,7 @@ interface InputProps {
   colorLabel?: string;
   control?: Control<Record<string, any>>;
   formState?: FormState<Record<string, any>>;
-  unregister: UseFormUnregister<FieldValues>;
+  unregister?: UseFormUnregister<FieldValues>;
   setValue?: (
     name: string,
     value: any,
@@ -61,14 +61,15 @@ const Input = ({
   errorString,
   color,
   maxLength,
-  onChange,
   bg,
   register,
   unregister,
 }: InputProps) => {
   const theme = useTheme();
   React.useEffect(() => {
-    return () => unregister(name);
+    return () => {
+      name && unregister?.(name);
+    };
   }, []);
   return (
     <InputStyle
@@ -87,7 +88,6 @@ const Input = ({
       error={!!errorString}
       color={color}
       maxLength={maxLength}
-      onChange={onChange}
       data-testid="input-id"
       {...register}
     />
