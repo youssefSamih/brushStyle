@@ -4,24 +4,28 @@
       "widget": "InputWidget",
       "placeholder": "Nom",
       "name": "user.name",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Prenom",
       "name": "user.lastname",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Email",
       "name": "user.email",
+      "required": true,
       "column": 6
     },
     {
       "widget": "PhoneWidget",
       "placeholder": "Numero de telephone",
       "name": "user.phone",
+      "required": true,
       "column": 6
     },
     {
@@ -29,6 +33,7 @@
       "placeholder": "Mot de passe",
       "name": "user.password",
       "type": "password",
+      "required": true,
       "column": 6
     },
     {
@@ -36,12 +41,14 @@
       "placeholder": "Confirmer le mot de passe",
       "name": "user.confirmPassword",
       "type": "password",
+      "required": true,
       "column": 6
     },
     {
       "widget": "ButtonWidget",
       "children": "Envoyer",
       "type": "submit",
+      "disabled": true,
       "column": 12
     }
   ]

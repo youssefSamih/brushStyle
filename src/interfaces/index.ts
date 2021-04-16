@@ -9,6 +9,12 @@ export interface Section {
   placeholder?: string;
   name?: string;
   useFormMthods?: UseFormReturn<FieldValues>;
+  required?: boolean;
+  disabled?: boolean;
+  options?: {
+    label: string;
+    value: string;
+  }[];
 }
 
 export type Tab = {

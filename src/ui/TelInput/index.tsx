@@ -5,7 +5,7 @@ import { Section } from 'interfaces';
 import { PhoneInputContainer } from './style';
 import { Controller } from 'react-hook-form';
 
-const TelInput = ({ useFormMthods, name }: Section) => {
+const TelInput = ({ useFormMthods, name, required }: Section) => {
   const [state, onChange] = React.useState('');
   if (useFormMthods?.control && name) {
     return (
@@ -18,10 +18,13 @@ const TelInput = ({ useFormMthods, name }: Section) => {
               <PhoneInputWithCountry
                 onChange={props.field.onChange}
                 value={props.field.value}
+                required={required}
               />
             );
           }}
-          rules={{}}
+          rules={{
+            required,
+          }}
         />
       </PhoneInputContainer>
     );

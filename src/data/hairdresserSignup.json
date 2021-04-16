@@ -2,50 +2,69 @@
   "sections": [
     {
       "widget": "RadioWidget",
-      "label": "Coiffeur indépendante",
-      "column": 6
-    },
-    {
-      "widget": "RadioWidget",
-      "label": "Salon",
-      "column": 6
+      "name": "hairdresser.type",
+      "column": 12,
+      "required": true,
+      "options": [
+        {
+          "label": "Coiffeur indépendante",
+          "value": "Coiffeur indépendante"
+        },
+        {
+          "label": "Salon",
+          "value": "Salon"
+        }
+      ]
     },
     {
       "widget": "InputWidget",
+      "name": "hairdresser.name",
       "placeholder": "Nom",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Prenom",
+      "name": "hairdresser.lastname",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Email",
+      "name": "hairdresser.email",
+      "required": true,
       "column": 6
     },
     {
       "widget": "PhoneWidget",
       "placeholder": "Numero de telephone",
-      "name": "user.phone",
+      "name": "hairdresser.phone",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Mot de passe",
+      "name": "hairdresser.password",
       "type": "password",
+      "required": true,
       "column": 6
     },
     {
       "widget": "InputWidget",
       "placeholder": "Confirmer le mot de passe",
+      "name": "hairdresser.confrimPassword",
       "type": "password",
+      "required": true,
       "column": 6
     },
     {
       "widget": "ButtonWidget",
       "children": "Envoyer",
+      "type": "submit",
+      "disabled": true,
       "column": 12
     }
   ]

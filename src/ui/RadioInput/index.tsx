@@ -13,7 +13,7 @@ interface RadioProps {
   name?: string;
   value?: string;
   as?: ElementType;
-  onChange?: () => void;
+  onChange?: (e: any) => void;
 }
 
 const RadioInput = forwardRef(

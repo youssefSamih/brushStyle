@@ -36,6 +36,7 @@ interface InputProps {
         }>
       | undefined
   ) => void;
+  register?: any;
   // handleErrorConditionsFormat?: ErrorCondition;
   canHideInputValue?: boolean;
 }
@@ -56,6 +57,7 @@ const Input = ({
   maxLength,
   onChange,
   bg,
+  register,
 }: InputProps) => {
   const theme = useTheme();
   return (
@@ -67,7 +69,6 @@ const Input = ({
       state={state}
       required={required}
       border={border}
-      // ref={ref}
       align={align}
       size={size}
       aria-label={label}
@@ -78,6 +79,7 @@ const Input = ({
       maxLength={maxLength}
       onChange={onChange}
       data-testid="input-id"
+      {...register}
     />
   );
 };
