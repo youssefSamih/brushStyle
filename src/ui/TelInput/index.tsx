@@ -1,6 +1,6 @@
 import React from 'react';
-import 'react-phone-number-input/style.css';
-import PhoneInputWithCountry from 'react-phone-number-input';
+import 'react-phone-input-2/lib/style.css';
+import PhoneInput from 'react-phone-input-2';
 import { Section } from 'interfaces';
 import { PhoneInputContainer } from './style';
 import { Controller } from 'react-hook-form';
@@ -8,6 +8,30 @@ import { Controller } from 'react-hook-form';
 const TelInput = ({ useFormMthods, name, required }: Section) => {
   const [state, onChange] = React.useState('');
   if (useFormMthods?.control && name) {
+    let validPhoneNumber = false;
+    const validatePhoneNumber = (
+      inputNumber: string,
+      country: any,
+      isDirty: boolean,
+      phoneLength: number
+    ) => {
+      if (isDirty) {
+        if (
+          inputNumber &&
+          inputNumber?.replace(country.dialCode, '')?.trim() === ''
+        ) {
+          validPhoneNumber = false;
+          return false;
+        } else if (inputNumber.length < phoneLength) {
+          validPhoneNumber = false;
+          return false;
+        }
+        validPhoneNumber = true;
+        return true;
+      }
+      validPhoneNumber = false;
+      return false;
+    };
     return (
       <PhoneInputContainer>
         <Controller
@@ -15,15 +39,40 @@ const TelInput = ({ useFormMthods, name, required }: Section) => {
           control={useFormMthods?.control}
           render={(props) => {
             return (
-              <PhoneInputWithCountry
-                onChange={props.field.onChange}
+              <PhoneInput
+                onChange={(e) => {
+                  useFormMthods.trigger();
+                  props.field.onChange(e);
+                }}
+                inputProps={{
+                  id: name,
+                  name,
+                  required,
+                  autoComplete: 'none',
+                  'data-testid': 'input-id',
+                }}
+                country={'fr'}
                 value={props.field.value}
-                required={required}
+                isValid={(inputNumber, country: any, countries) => {
+                  const phoneLength = Math.ceil(
+                    (countries.filter(
+                      (val: any) => val.dialCode === country.dialCode
+                    )[0] as any)?.format.length / 2
+                  );
+                  return validatePhoneNumber(
+                    inputNumber,
+                    country,
+                    props.formState.isDirty,
+                    phoneLength
+                  );
+                }}
+                specialLabel=""
               />
             );
           }}
           rules={{
             required,
+            validate: () => validPhoneNumber,
           }}
         />
       </PhoneInputContainer>
@@ -31,7 +80,7 @@ const TelInput = ({ useFormMthods, name, required }: Section) => {
   }
   return (
     <PhoneInputContainer>
-      <PhoneInputWithCountry onChange={onChange} value={state} />
+      <PhoneInput onChange={onChange} value={state} />
     </PhoneInputContainer>
   );
 };

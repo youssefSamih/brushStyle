@@ -14,7 +14,6 @@ export const RadioWidget = ({
   React.useEffect(() => {
     if (name && state !== '') {
       useFormMthods?.setValue(name, state);
-      useFormMthods?.trigger();
     }
   }, [state]);
   return (
