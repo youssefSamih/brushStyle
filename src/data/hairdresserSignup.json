@@ -5,6 +5,7 @@
       "name": "hairdresser.type",
       "column": 12,
       "required": true,
+      "value": "Coiffeur indépendante",
       "options": [
         {
           "label": "Coiffeur indépendante",
@@ -21,14 +22,33 @@
       "name": "hairdresser.name",
       "placeholder": "Nom",
       "required": true,
-      "column": 6
+      "column": 6,
+      "$if": {
+        "$eq": ["_KEY_:hairdresser.type", "Coiffeur indépendante"],
+        "defaultValue": "Coiffeur indépendante"
+      }
     },
     {
       "widget": "InputWidget",
       "placeholder": "Prenom",
       "name": "hairdresser.lastname",
       "required": true,
-      "column": 6
+      "column": 6,
+      "$if": {
+        "$eq": ["_KEY_:hairdresser.type", "Coiffeur indépendante"],
+        "defaultValue": "Coiffeur indépendante"
+      }
+    },
+    {
+      "widget": "InputWidget",
+      "placeholder": "Le nom du salon",
+      "name": "hairdresser.salonName",
+      "required": true,
+      "column": 12,
+      "$if": {
+        "$eq": ["_KEY_:hairdresser.type", "Salon"],
+        "defaultValue": "Coiffeur indépendante"
+      }
     },
     {
       "widget": "InputWidget",

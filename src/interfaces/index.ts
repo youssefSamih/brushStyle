@@ -11,10 +11,16 @@ export interface Section {
   useFormMthods?: UseFormReturn<FieldValues>;
   required?: boolean;
   disabled?: boolean;
+  value?: string;
   options?: {
     label: string;
     value: string;
   }[];
+  $if?: ifProps;
+}
+export interface ifProps {
+  $eq?: string[];
+  defaultValue?: string;
 }
 
 export type Tab = {

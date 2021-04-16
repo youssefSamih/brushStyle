@@ -1,5 +1,10 @@
 import React from 'react';
-import { Control, FormState } from 'react-hook-form';
+import {
+  Control,
+  FieldValues,
+  FormState,
+  UseFormUnregister,
+} from 'react-hook-form';
 import { useTheme } from 'styled-components';
 import { InputStyle } from './style';
 
@@ -26,6 +31,7 @@ interface InputProps {
   colorLabel?: string;
   control?: Control<Record<string, any>>;
   formState?: FormState<Record<string, any>>;
+  unregister: UseFormUnregister<FieldValues>;
   setValue?: (
     name: string,
     value: any,
@@ -58,8 +64,12 @@ const Input = ({
   onChange,
   bg,
   register,
+  unregister,
 }: InputProps) => {
   const theme = useTheme();
+  React.useEffect(() => {
+    return () => unregister(name);
+  }, []);
   return (
     <InputStyle
       id={name}

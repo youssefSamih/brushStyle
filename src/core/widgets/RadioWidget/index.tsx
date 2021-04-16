@@ -9,11 +9,14 @@ export const RadioWidget = ({
   name,
   required,
   useFormMthods,
+  value,
 }: Section) => {
   const [state, setState] = React.useState('');
   React.useEffect(() => {
     if (name && state !== '') {
       useFormMthods?.setValue(name, state);
+    } else if (name && value) {
+      setState(value);
     }
   }, [state]);
   return (

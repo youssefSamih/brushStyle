@@ -26,10 +26,7 @@
     "no-console": [
       "error",
       {
-        "allow": [
-          "error",
-          "warn"
-        ]
+        "allow": ["error", "warn"]
       }
     ],
     "@typescript-eslint/explicit-module-boundary-types": "off",
@@ -38,7 +35,8 @@
     "jsx-a11y/anchor-is-valid": "off",
     "jsx-a11y/alt-text": "off",
     "react/display-name": "off",
-    "react-hooks/rules-of-hooks": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "prettier/prettier": [
       "error",
       {},
@@ -74,7 +72,5 @@
   "globals": {
     "React": "writable"
   },
-  "plugins": [
-    "simple-import-sort"
-  ]
+  "plugins": ["simple-import-sort", "react-hooks"]
 }
