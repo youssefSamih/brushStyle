@@ -25,8 +25,9 @@ const ErrorNotifications = ({
   };
   return (
     <>
-      {state.map((msg) => (
+      {state.map((msg, i) => (
         <Notification
+          key={i}
           {...{ msg }}
           state="danger"
           onClick={() => onClick(msg)}

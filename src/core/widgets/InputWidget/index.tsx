@@ -22,8 +22,8 @@ export const InputWidget = ({
     useFormMthods?.control &&
     useWatch({ control: useFormMthods?.control, name });
   React.useEffect(() => {
-    if (inputValueChange && name) {
-      useFormMthods?.setValue(name, inputValueChange);
+    if (name) {
+      useFormMthods?.setValue(name, inputValueChange, { shouldValidate: true });
     }
   }, [inputValueChange]);
   if (value) {

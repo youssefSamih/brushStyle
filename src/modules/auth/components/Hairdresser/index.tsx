@@ -9,7 +9,6 @@ const Hairdresser = ({ hairdresserSignup }: any) => {
     reValidateMode: 'onSubmit',
   });
   const errors = useFormMthods.formState.errors[hairdresserSignup?.formKey];
-  console.log(errors);
   const onSubmit = (e: any) => console.log(e);
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
