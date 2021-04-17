@@ -19,12 +19,13 @@ type Schema = {
   validate?: Record<string, Array<string>>;
   minLength?: number;
   maxLength?: number;
+  required?: boolean;
   errorMessage?: { [key: string]: string };
 };
 
 export type ErrorCondition = {
   [key: string]: {
-    value: string | RegExp;
+    value: string | RegExp | boolean | undefined;
     message: string | boolean;
     validate?: () => void;
   };
@@ -43,8 +44,12 @@ export const handleErrorConditionsFormat = (
     for (const key in schema) {
       // skip errorMessage object
       if (key === 'errorMessage') continue;
-
-      if (key === 'pattern' && schema.pattern) {
+      if (key === 'required') {
+        errorConditions[key] = {
+          value: schema[key],
+          message: (schema.errorMessage && schema.errorMessage[key]) || '',
+        };
+      } else if (key === 'pattern' && schema.pattern) {
         errorConditions[key] = {
           value: new RegExp(schema.pattern),
           message: (schema.errorMessage && schema.errorMessage[key]) || '',

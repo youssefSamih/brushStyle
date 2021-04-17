@@ -13,7 +13,7 @@
         "required": true,
         "errorMessage": {
           "pattern": "Le format de l'adresse e-mail n'est pas valide",
-          "required": "Obligatoire",
+          "required": "Email Obligatoire",
           "maxLength": "Trop long"
         }
       }
@@ -33,7 +33,7 @@
         "errorMessage": {
           "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
           "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
-          "required": "Obligatoire",
+          "required": "Mot de passe Obligatoire",
           "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
         }
       }

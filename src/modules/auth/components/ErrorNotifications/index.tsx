@@ -14,12 +14,13 @@ const ErrorNotifications = ({
       for (const key in errors) {
         if (Object.prototype.hasOwnProperty.call(errors, key)) {
           const element = errors[key];
-          element?.message !== '' && errorMessage.push(element?.message);
+          element?.message !== '' &&
+            errorMessage.push(`${key}: ${element?.message}`);
         }
       }
       setState(errorMessage);
     }
-  }, [...Object.keys(errors).map((key) => errors[key])]);
+  }, [Object.keys(errors).map((key) => errors[key]).length]);
   const onClick = (msg: string) => {
     setState([...state.filter((val) => val !== msg)]);
   };

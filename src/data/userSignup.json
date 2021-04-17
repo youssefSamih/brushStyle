@@ -8,8 +8,9 @@
       "required": true,
       "column": 6,
       "schema": {
+        "required": true,
         "errorMessage": {
-          "required": "Obligatoire"
+          "required": "Le nom est obligatoire"
         }
       }
     },
@@ -20,8 +21,9 @@
       "required": true,
       "column": 6,
       "schema": {
+        "required": true,
         "errorMessage": {
-          "required": "Obligatoire"
+          "required": "Le prenom est obligatoire"
         }
       }
     },
@@ -34,9 +36,10 @@
       "schema": {
         "pattern": "^((\"[\\w-\\s]+\")|([\\w-]+(?:\\.[\\w-]+)*)|(\"[\\w-\\s]+\")([\\w-]+(?:\\.[\\w-]+)*))(@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$)|(@\\[?((25[0-5]\\.|2[0-4][0-9]\\.|1[0-9]{2}\\.|[0-9]{1,2}\\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\\]?$)",
         "maxLength": 100,
+        "required": true,
         "errorMessage": {
           "pattern": "Le format de l'adresse e-mail n'est pas encore valide",
-          "required": "Obligatoire",
+          "required": "L'Email est obligatoire",
           "maxLength": "Trop long"
         }
       }
@@ -48,9 +51,10 @@
       "required": true,
       "column": 6,
       "schema": {
+        "required": true,
         "errorMessage": {
           "validate": "Le format de telephone n'est pas valide",
-          "required": "Obligatoire"
+          "required": "Le numero de telephone est obligatoire"
         }
       }
     },
@@ -65,10 +69,12 @@
         "minLength": 8,
         "maxLength": 16,
         "pattern": "(?=^.{8,16}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?\\W)",
+        "required": true,
         "errorMessage": {
           "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
           "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
-          "maxLength": "Le mot de passe dépasse la longueur maximale de 18."
+          "maxLength": "Le mot de passe dépasse la longueur maximale de 18.",
+          "required": "Le mot de passe de telephone est obligatoire"
         }
       }
     },
@@ -83,6 +89,7 @@
         "minLength": 8,
         "maxLength": 16,
         "pattern": "(?=^.{8,16}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?\\W)",
+        "required": true,
         "validate": {
           "$eq": ["user.password", "user.confirmPassword"]
         },
@@ -90,7 +97,8 @@
           "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
           "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
           "maxLength": "Le mot de passe dépasse la longueur maximale de 18.",
-          "validate": "Les mots de passe ne correspondent pas"
+          "validate": "Les mots de passe ne correspondent pas",
+          "required": "confirm du mot de passe est obligatoire"
         }
       }
     },
