@@ -25,6 +25,7 @@ export interface Section {
       pattern?: string;
       minLength?: string;
       maxLength?: string;
+      validate?: string;
     };
   };
 }

@@ -93,7 +93,13 @@
       "placeholder": "Numero de telephone",
       "name": "hairdresser.phone",
       "required": true,
-      "column": 6
+      "column": 6,
+      "schema": {
+        "errorMessage": {
+          "validate": "Le format de telephone n'est pas valide",
+          "required": "Obligatoire"
+        }
+      }
     },
     {
       "widget": "InputWidget",
@@ -109,7 +115,8 @@
         "errorMessage": {
           "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
           "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
-          "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
+          "maxLength": "Le mot de passe dépasse la longueur maximale de 18",
+          "required": "Obligatoire"
         }
       }
     },
@@ -124,10 +131,15 @@
         "minLength": 8,
         "maxLength": 16,
         "pattern": "(?=^.{8,16}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?\\W)",
+        "validate": {
+          "$eq": ["hairdresser.password", "hairdresser.confirmPassword"]
+        },
         "errorMessage": {
           "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
           "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
-          "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
+          "maxLength": "Le mot de passe dépasse la longueur maximale de 18",
+          "validate": "Les mots de passe ne correspondent pas",
+          "required": "Obligatoire"
         }
       }
     },

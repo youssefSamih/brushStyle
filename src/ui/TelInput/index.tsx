@@ -5,7 +5,7 @@ import { Section } from 'interfaces';
 import { PhoneInputContainer } from './style';
 import { Controller } from 'react-hook-form';
 
-const TelInput = ({ useFormMthods, name, required }: Section) => {
+const TelInput = ({ useFormMthods, name, required, schema }: Section) => {
   const [state, onChange] = React.useState('');
   if (useFormMthods?.control && name) {
     let validPhoneNumber = false;
@@ -72,7 +72,7 @@ const TelInput = ({ useFormMthods, name, required }: Section) => {
           }}
           rules={{
             required,
-            validate: () => validPhoneNumber,
+            validate: () => validPhoneNumber || schema?.errorMessage?.validate,
           }}
         />
       </PhoneInputContainer>
