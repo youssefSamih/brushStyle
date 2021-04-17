@@ -26,6 +26,11 @@
       "$if": {
         "$eq": ["_KEY_:hairdresser.type", "Coiffeur indépendante"],
         "defaultValue": "Coiffeur indépendante"
+      },
+      "schema": {
+        "errorMessage": {
+          "required": "Obligatoire"
+        }
       }
     },
     {
@@ -37,6 +42,11 @@
       "$if": {
         "$eq": ["_KEY_:hairdresser.type", "Coiffeur indépendante"],
         "defaultValue": "Coiffeur indépendante"
+      },
+      "schema": {
+        "errorMessage": {
+          "required": "Obligatoire"
+        }
       }
     },
     {
@@ -48,6 +58,11 @@
       "$if": {
         "$eq": ["_KEY_:hairdresser.type", "Salon"],
         "defaultValue": "Coiffeur indépendante"
+      },
+      "schema": {
+        "errorMessage": {
+          "required": "Obligatoire"
+        }
       }
     },
     {
@@ -60,9 +75,9 @@
         "pattern": "^((\"[\\w-\\s]+\")|([\\w-]+(?:\\.[\\w-]+)*)|(\"[\\w-\\s]+\")([\\w-]+(?:\\.[\\w-]+)*))(@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$)|(@\\[?((25[0-5]\\.|2[0-4][0-9]\\.|1[0-9]{2}\\.|[0-9]{1,2}\\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\\]?$)",
         "maxLength": 100,
         "errorMessage": {
-          "pattern": "Email address format not valid yet",
-          "required": "Required",
-          "maxLength": "Too long"
+          "pattern": "Le format de l'adresse e-mail n'est pas valide",
+          "required": "Obligatoire",
+          "maxLength": "Trop long"
         }
       }
     },
@@ -85,9 +100,9 @@
         "maxLength": 16,
         "pattern": "(?=^.{8,16}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?\\W)",
         "errorMessage": {
-          "pattern": "Password must be 8-16 characters, with at least 1 digit, 1 lowercase, 1 uppercase letter, and a special character (@#$%&*!)",
-          "minLength": "The password is less than minimum length of 6",
-          "maxLength": "The password exceeds maximum length of 18."
+          "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
+          "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
+          "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
         }
       }
     },
@@ -103,9 +118,9 @@
         "maxLength": 16,
         "pattern": "(?=^.{8,16}$)(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\\d)(?=.*?\\W)",
         "errorMessage": {
-          "pattern": "Password must be 8-16 characters, with at least 1 digit, 1 lowercase, 1 uppercase letter, and a special character (@#$%&*!)",
-          "minLength": "The password is less than minimum length of 6",
-          "maxLength": "The password exceeds maximum length of 18."
+          "pattern": "Le mot de passe doit comprendre entre 8 et 16 caractères, avec au moins 1 chiffre, 1 minuscule, 1 lettre majuscule et un caractère spécial (@#$%&*!)",
+          "minLength": "Le mot de passe est inférieur à la longueur minimale de 6",
+          "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
         }
       }
     },

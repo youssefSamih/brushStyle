@@ -6,6 +6,7 @@ const Login = ({ loginData }: any) => {
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
+  console.log(useFormMthods.formState.errors);
   const onSubmit = (e: any) => console.log(e);
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
