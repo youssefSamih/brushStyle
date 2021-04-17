@@ -11,11 +11,11 @@ const Login = ({
   loginData,
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
-    <ImageContainer heightInherit>
-      <Layout variant="secondary" links={Headerlinks}>
+    <Layout variant="secondary" links={Headerlinks}>
+      <ImageContainer>
         <MainLogin {...{ loginData }} />
-      </Layout>
-    </ImageContainer>
+      </ImageContainer>
+    </Layout>
   );
 };
 

@@ -1,0 +1,55 @@
+[
+  {
+    "block": [
+      {
+        "title": "Current Offerings",
+        "href": "/current-offerings",
+        "as": "/current-offerings"
+      },
+      {
+        "title": "Investments",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Documents",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Tax Center",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Sign in",
+        "href": "/signin",
+        "as": "/signin"
+      }
+    ]
+  },
+  {
+    "block": [
+      {
+        "title": "Support",
+        "href": "/support",
+        "as": "/support"
+      },
+      {
+        "title": "Privacy Policy",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Legal",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Terms & Conditions",
+        "href": "/",
+        "as": "/"
+      }
+    ]
+  }
+]

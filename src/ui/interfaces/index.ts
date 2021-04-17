@@ -40,3 +40,7 @@ export type ButtonProps = {
   disabled?: boolean;
   loading?: boolean;
 } & StyledButtonProps;
+
+export interface LayoutContainerProps {
+  marginBottom?: number;
+}

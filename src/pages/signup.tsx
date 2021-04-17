@@ -13,11 +13,11 @@ const Signup = ({
   hairdresserSignup,
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
-    <ImageContainer>
-      <Layout variant="secondary" links={Headerlinks}>
+    <Layout variant="secondary" links={Headerlinks} marginBottom={16}>
+      <ImageContainer>
         <MainSignup {...{ userSignup, hairdresserSignup }} />
-      </Layout>
-    </ImageContainer>
+      </ImageContainer>
+    </Layout>
   );
 };
 

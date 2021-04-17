@@ -40,5 +40,5 @@ export type Tab = {
 
 export interface ImageProps {
   bg?: string;
-  heightInherit?: boolean;
+  heightImage?: number;
 }

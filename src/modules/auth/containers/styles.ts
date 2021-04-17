@@ -6,7 +6,6 @@ export const MainAuthContainer = styled.div`
   box-shadow: ${({ theme }) => theme.colors.grey[800]} 0px 6px 6px 0px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 3px;
-  margin-top: 10rem;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin-top: 0;
   }
@@ -18,14 +17,15 @@ export const ImageContainer = styled.div<ImageProps>`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100%;
-  position: absolute;
+  min-height: 100vh;
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
-    height: ${({ heightInherit }) => (heightInherit ? 'inherit' : 'auto')};
+    padding: 6rem 0;
+    height: ${({ heightImage }) => (heightImage ? heightImage + 'vh' : 'auto')};
   }
 `;
