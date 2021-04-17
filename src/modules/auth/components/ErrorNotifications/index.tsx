@@ -14,8 +14,7 @@ const ErrorNotifications = ({
       for (const key in errors) {
         if (Object.prototype.hasOwnProperty.call(errors, key)) {
           const element = errors[key];
-          element?.message !== '' &&
-            errorMessage.push(`${key}: ${element?.message}`);
+          element?.message !== '' && errorMessage.push(element?.message);
         }
       }
       setState(errorMessage);
