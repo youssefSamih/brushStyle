@@ -21,7 +21,10 @@ const Login = ({
 
 export default Login;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{
+  Headerlinks: typeof Headerlinks;
+  loginData: typeof loginData;
+}> = async () => {
   return {
     props: { Headerlinks, loginData },
   };

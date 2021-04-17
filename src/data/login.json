@@ -1,4 +1,5 @@
 {
+  "formKey": "login",
   "sections": [
     {
       "widget": "InputWidget",
@@ -11,7 +12,7 @@
         "maxLength": 100,
         "required": true,
         "errorMessage": {
-          "pattern": "Le format de l'adresse e-mail n'est pas encore valide",
+          "pattern": "Le format de l'adresse e-mail n'est pas valide",
           "required": "Obligatoire",
           "maxLength": "Trop long"
         }

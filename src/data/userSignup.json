@@ -1,4 +1,5 @@
 {
+  "formKey": "user",
   "sections": [
     {
       "widget": "InputWidget",
