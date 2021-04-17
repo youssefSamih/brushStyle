@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Flex, Item } from 'react-flex-ready';
 import { Container } from 'ui/styles';
-import links from 'ui/Footer/links.json';
+import links from 'data/footerLinks.json';
 
 import { Address, Links, SubItem, Wrapper } from './styles';
 import Logo from 'ui/Logo';

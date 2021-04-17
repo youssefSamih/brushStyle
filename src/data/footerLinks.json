@@ -1,0 +1,45 @@
+[
+  {
+    "block": [
+      {
+        "title": "Offre cournt",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Sign in",
+        "href": "/login",
+        "as": "/login"
+      },
+      {
+        "title": "Sign up",
+        "href": "/signup",
+        "as": "/signup"
+      }
+    ]
+  },
+  {
+    "block": [
+      {
+        "title": "Support",
+        "href": "/support",
+        "as": "/support"
+      },
+      {
+        "title": "Politique de confidentialité",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Legal",
+        "href": "/",
+        "as": "/"
+      },
+      {
+        "title": "Termes et conditions",
+        "href": "/",
+        "as": "/"
+      }
+    ]
+  }
+]

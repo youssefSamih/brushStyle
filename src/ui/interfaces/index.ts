@@ -44,3 +44,8 @@ export type ButtonProps = {
 export interface LayoutContainerProps {
   marginBottom?: number;
 }
+
+export interface InputCProps {
+  state?: string;
+  error?: boolean;
+}
