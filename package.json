@@ -32,8 +32,10 @@
     ]
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "babel-preset-next": "^1.4.0",
     "date-fns": "^2.11.1",
+    "firebase": "^8.4.1",
     "gray-matter": "^4.0.2",
     "next": "^10.0.0",
     "next-firebase-auth": "^0.13.0-alpha.4",
