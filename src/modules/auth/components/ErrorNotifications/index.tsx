@@ -1,5 +1,10 @@
 import React from 'react';
-import { DeepMap, FieldError, FieldValues } from 'react-hook-form';
+import {
+  DeepMap,
+  FieldError,
+  FieldValues,
+  UseFormReturn,
+} from 'react-hook-form';
 import Notification from 'ui/Notification';
 
 const ErrorNotifications = ({

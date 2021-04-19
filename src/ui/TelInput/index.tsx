@@ -17,12 +17,11 @@ const TelInput = ({ useFormMthods, name, required, schema }: Section) => {
     ) => {
       if (isDirty) {
         if (
-          inputNumber &&
-          inputNumber?.replace(country.dialCode, '')?.trim() === ''
+          (inputNumber &&
+            inputNumber?.replace(country.dialCode, '')?.trim() === '') ||
+          inputNumber === '' ||
+          inputNumber.length < phoneLength
         ) {
-          validPhoneNumber = false;
-          return false;
-        } else if (inputNumber.length < phoneLength) {
           validPhoneNumber = false;
           return false;
         }

@@ -9,12 +9,20 @@ interface userInfo {
   displayName: any;
   providerData: { providerId: any }[];
   photoURL: any;
+  emailVerified: boolean;
+  isAnonymous: any;
+  refreshToken: string;
+  otherInfo: {
+    lastname: string;
+    name: string;
+    phone: string;
+  };
 }
 
-const authContext = createContext(null);
+const authContext = createContext<any>(null);
 
 export const AuthProvider: React.FC = ({ children }) => {
-  const auth: any = useFirebaseAuth();
+  const auth = useFirebaseAuth();
   return <authContext.Provider value={auth}>{children}</authContext.Provider>;
 };
 
@@ -23,17 +31,17 @@ export const useAuth = () => {
 };
 
 const useFirebaseAuth = () => {
-  const [user, setUser] = useState<boolean>();
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const handleUser = async (rawUser: any) => {
+  const handleUser = async (rawUser: any, shouldCreateNewUser: boolean) => {
     if (rawUser) {
-      const user: any = await formatUser(rawUser);
+      const user: any = formatUser(rawUser, shouldCreateNewUser);
       const { token, ...userWithoutToken } = user;
-
-      createUser(user.uid, userWithoutToken);
+      if (shouldCreateNewUser) {
+        createUser(user.uid, userWithoutToken);
+      }
       setUser(user);
-
       setLoading(false);
       return user;
     } else {
@@ -43,17 +51,18 @@ const useFirebaseAuth = () => {
     }
   };
 
-  const signInWithEmailAndPassword = (
+  const signInWithEmailAndPassword = async (
     email: string,
     password: string,
-    redirect: string
+    redirect: string,
+    rest: any
   ) => {
     setLoading(true);
     return firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
-        handleUser(response.user);
+        handleUser({ ...response.user, ...rest });
 
         if (redirect) {
           Router.push(redirect);
@@ -61,33 +70,35 @@ const useFirebaseAuth = () => {
       });
   };
 
-  const createUserWithEmailAndPassword = (
+  const createUserWithEmailAndPassword = async (
     email: string,
     password: string,
-    redirect: string
+    redirect: string,
+    rest: any
   ) => {
     setLoading(true);
-    return firebase
+    const response = await firebase
       .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then((response) => {
-        handleUser(response.user);
-
-        if (redirect) {
-          Router.push(redirect);
-        }
-      });
+      .createUserWithEmailAndPassword(email, password);
+    if (response) {
+      handleUser({ ...response.user, ...rest }, true);
+      if (redirect) {
+        Router.push(redirect);
+      }
+    }
   };
 
   const signout = () => {
     return firebase
       .auth()
       .signOut()
-      .then(() => handleUser(false));
+      .then(() => handleUser(false, false));
   };
 
   useEffect(() => {
-    const unsubscribe = firebase.auth().onIdTokenChanged(handleUser);
+    const unsubscribe = firebase
+      .auth()
+      .onIdTokenChanged((userId) => handleUser(userId, false));
     return () => unsubscribe();
   }, []);
 
@@ -100,12 +111,33 @@ const useFirebaseAuth = () => {
   };
 };
 
-const formatUser = async (user: userInfo) => {
+const formatUser = (user: userInfo, shouldCreateNewUser: boolean) => {
+  const {
+    uid,
+    email,
+    providerData,
+    photoURL,
+    emailVerified,
+    isAnonymous,
+    otherInfo,
+    refreshToken,
+  } = user;
+  const formatedUserInfo = {
+    uid,
+    email,
+    name: otherInfo?.name,
+    provider: providerData[0].providerId,
+    photoUrl: photoURL,
+    emailVerified,
+    isAnonymous,
+    lastname: otherInfo?.lastname,
+    phoneNumber: otherInfo?.phone,
+  };
+  if (shouldCreateNewUser) {
+    return formatedUserInfo;
+  }
   return {
-    uid: user.uid,
-    email: user.email,
-    name: user.displayName,
-    provider: user.providerData[0].providerId,
-    photoUrl: user.photoURL,
+    ...formatedUserInfo,
+    refreshToken,
   };
 };

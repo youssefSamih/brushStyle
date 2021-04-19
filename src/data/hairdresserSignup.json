@@ -154,7 +154,6 @@
       "widget": "ButtonWidget",
       "children": "Envoyer",
       "type": "submit",
-      "disabled": true,
       "column": 12
     }
   ]
