@@ -7,6 +7,7 @@ import ErrorNotifications from '../ErrorNotifications';
 const User = ({ userSignup }: any) => {
   const [state, setState] = React.useState(false);
   const auth = useAuth();
+  const loading = auth.loading;
   const useFormMthods = useForm({
     mode: 'onChange',
     reValidateMode: 'onSubmit',
@@ -14,10 +15,9 @@ const User = ({ userSignup }: any) => {
   const errors = useFormMthods.formState.errors[userSignup?.formKey];
   const onSubmit = (e: any) => {
     const { email, password, ...rest } = e[userSignup?.formKey];
-    auth.createUserWithEmailAndPassword(email, password, '/signup', {
+    auth.createUserWithEmailAndPassword(email, password, '/login', {
       otherInfo: rest,
     });
-    // console.log(e[userSignup?.formKey]);
   };
   return (
     <form
@@ -25,7 +25,10 @@ const User = ({ userSignup }: any) => {
       onClick={() => setState(true)}
     >
       {state && errors && <ErrorNotifications {...{ errors }} />}
-      <RenderWidgets singleStepWidgets={userSignup} {...{ useFormMthods }} />
+      <RenderWidgets
+        singleStepWidgets={userSignup}
+        {...{ useFormMthods, loading }}
+      />
     </form>
   );
 };

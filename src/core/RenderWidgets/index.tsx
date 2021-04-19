@@ -6,15 +6,17 @@ import { Container } from 'ui/styles';
 const RenderWidgets = ({
   singleStepWidgets = {},
   useFormMthods,
+  loading,
 }: {
   singleStepWidgets: any;
   useFormMthods: UseFormReturn<FieldValues>;
+  loading?: boolean;
 }) => {
   return (
     <Container>
       <RenderSections
         sections={singleStepWidgets.sections}
-        {...{ useFormMthods }}
+        {...{ useFormMthods, loading }}
       />
     </Container>
   );

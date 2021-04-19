@@ -1,10 +1,11 @@
 import React from 'react';
 import { ButtonProps } from 'ui/interfaces';
+import Loader from 'ui/Loader';
 
 import { StyledButton } from './style';
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, as, type, onClick, inactive, disabled }, ref) => (
+  ({ children, as, type, onClick, inactive, disabled, loading }, ref) => (
     <StyledButton
       as={as}
       disabled={inactive || disabled}
@@ -13,7 +14,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       onClick={onClick}
       ref={ref}
     >
-      {children}
+      {loading ? <Loader /> : children}
     </StyledButton>
   )
 );

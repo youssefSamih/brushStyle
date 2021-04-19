@@ -12,6 +12,7 @@ export interface Section {
   required?: boolean;
   disabled?: boolean;
   value?: string;
+  loading?: boolean;
   options?: {
     label: string;
     value: string;

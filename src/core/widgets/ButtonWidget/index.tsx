@@ -9,13 +9,14 @@ export const ButtonWidget: React.FC<Section> = ({
   type,
   disabled,
   useFormMthods,
+  loading,
 }) => {
   return (
     <Item col={column}>
       <Button
-        type={type}
         disabled={disabled && !useFormMthods?.formState.isValid}
         inactive={disabled && !useFormMthods?.formState.isValid}
+        {...{ type, loading }}
       >
         {children}
       </Button>

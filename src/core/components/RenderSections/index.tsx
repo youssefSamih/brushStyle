@@ -7,16 +7,18 @@ import { FieldValues, UseFormReturn } from 'react-hook-form';
 const RenderSections = ({
   sections = [],
   useFormMthods,
+  loading,
 }: {
   sections: Section[];
   useFormMthods: UseFormReturn<FieldValues>;
+  loading?: boolean;
 }) => {
   return (
     <Flex>
       {sections.map((elem: Section, index: number) => {
         return (
           <React.Fragment key={index}>
-            <RenderWidget {...{ elem, useFormMthods }} />
+            <RenderWidget {...{ elem, useFormMthods, loading }} />
           </React.Fragment>
         );
       })}
