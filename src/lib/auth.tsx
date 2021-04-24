@@ -36,7 +36,7 @@ export const useAuth = () => {
 
 const useFirebaseAuth = () => {
   const [user, setUser] = useState({});
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [errors, setError] = useState<authErrorResponse>();
 
   const handleUser = async (rawUser: any, shouldCreateNewUser?: boolean) => {
@@ -93,6 +93,14 @@ const useFirebaseAuth = () => {
         .createUserWithEmailAndPassword(email, password);
       if (response) {
         handleUser({ ...response.user, ...rest }, true);
+        try {
+          const sendVerificationEmail = await firebase
+            .auth()
+            .currentUser?.sendEmailVerification();
+          console.log(sendVerificationEmail);
+        } catch (error) {
+          console.log(error);
+        }
         if (redirect) {
           Router.push(redirect);
         }
@@ -110,12 +118,12 @@ const useFirebaseAuth = () => {
       .then(() => handleUser(false, false));
   };
 
-  useEffect(() => {
-    const unsubscribe = firebase
-      .auth()
-      .onIdTokenChanged((userId) => handleUser(userId, false));
-    return () => unsubscribe();
-  }, []);
+  // useEffect(() => {
+  //   const unsubscribe = firebase
+  //     .auth()
+  //     .onIdTokenChanged((userId) => handleUser(userId, false));
+  //   return () => unsubscribe();
+  // }, []);
 
   return {
     user,

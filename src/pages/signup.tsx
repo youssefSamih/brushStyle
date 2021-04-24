@@ -18,7 +18,7 @@ const Signup = ({
   const router = useRouter();
   const auth = useAuth();
   if (auth.user.email) {
-    router.replace('/');
+    router.replace('/login');
   }
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   return (

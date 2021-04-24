@@ -1,11 +1,9 @@
 [
   {
-    "a": "",
     "code": "auth/email-already-in-use",
     "message": "L'adresse e-mail est déjà utilisée par un autre compte."
   },
   {
-    "a": "",
     "code": "auth/user-not-found",
     "message": "Il n'existe pas un utilisateur avec cet identifiant. s'il vous plait creer un compte"
   }

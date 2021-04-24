@@ -15,7 +15,7 @@ const Login = ({
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const auth = useAuth();
-  if (auth.user.email) {
+  if (auth.user.emailVerified) {
     router.replace('/');
   }
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
