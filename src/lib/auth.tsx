@@ -39,7 +39,7 @@ const useFirebaseAuth = () => {
   const [loading, setLoading] = useState(true);
   const [errors, setError] = useState<authErrorResponse>();
 
-  const handleUser = async (rawUser: any, shouldCreateNewUser: boolean) => {
+  const handleUser = async (rawUser: any, shouldCreateNewUser?: boolean) => {
     if (rawUser) {
       const user: any = formatUser(rawUser, shouldCreateNewUser);
       const { token, ...userWithoutToken } = user;
@@ -59,15 +59,15 @@ const useFirebaseAuth = () => {
   const signInWithEmailAndPassword = async (
     email: string,
     password: string,
-    redirect: string,
-    rest: any
+    redirect: string
   ) => {
     setLoading(true);
+    setError(undefined);
     return firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((response) => {
-        handleUser({ ...response.user, ...rest });
+        handleUser({ ...response.user });
 
         if (redirect) {
           Router.push(redirect);
@@ -82,6 +82,7 @@ const useFirebaseAuth = () => {
     rest: any
   ) => {
     setLoading(true);
+    setError(undefined);
     try {
       const response = await firebase
         .auth()

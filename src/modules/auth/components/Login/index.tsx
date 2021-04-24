@@ -1,24 +1,34 @@
 import RenderWidgets from 'core/RenderWidgets';
 import { useForm } from 'react-hook-form';
 import loginSections from 'data/login.json';
-// import ErrorNotifications from '../ErrorNotifications';
+import ErrorNotifications from '../ErrorNotifications';
 import React from 'react';
+import { useAuth } from 'lib/auth';
 
 const Login = ({ loginData }: { loginData: typeof loginSections }) => {
-  // const [state, setState] = React.useState(false);
+  const [state, setstate] = React.useState(false);
+  const auth = useAuth();
+  const loading = auth.loading;
+  let apiErrors = auth.errors;
   const useFormMthods = useForm({
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
-  // const errors = useFormMthods.formState.errors[loginSections?.formKey];
-  const onSubmit = (e: any) => console.log(e);
+  const errors = {
+    apiErrors: { ...apiErrors },
+  };
+  const onSubmit = (e: any) => {
+    const { email, password } = e[loginData?.formKey];
+    auth.signInWithEmailAndPassword(email, password, '/');
+    setstate(true);
+  };
   return (
-    <form
-      onSubmit={useFormMthods.handleSubmit(onSubmit)}
-      // onClick={() => setState(true)}
-    >
-      {/* {state && errors && <ErrorNotifications {...{ errors }} />} */}
-      <RenderWidgets singleStepWidgets={loginData} {...{ useFormMthods }} />
+    <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
+      {state && errors && <ErrorNotifications {...{ errors }} />}
+      <RenderWidgets
+        singleStepWidgets={loginData}
+        {...{ useFormMthods, loading }}
+      />
     </form>
   );
 };
