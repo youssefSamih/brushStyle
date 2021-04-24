@@ -18,6 +18,8 @@ interface userInfo {
     lastname: string;
     name: string;
     phone: string;
+    salonName?: string;
+    type?: string;
   };
 }
 
@@ -131,17 +133,43 @@ const formatUser = (user: userInfo, shouldCreateNewUser: boolean) => {
     otherInfo,
     refreshToken,
   } = user;
-  const formatedUserInfo = {
+  let formatedUserInfo: any = {
     uid,
     email,
-    name: otherInfo?.name,
     provider: providerData[0].providerId,
     photoUrl: photoURL,
     emailVerified,
     isAnonymous,
+    name: otherInfo?.name,
     lastname: otherInfo?.lastname,
     phoneNumber: otherInfo?.phone,
   };
+  if (otherInfo?.salonName) {
+    formatedUserInfo = {
+      uid,
+      email,
+      provider: providerData[0].providerId,
+      photoUrl: photoURL,
+      emailVerified,
+      isAnonymous,
+      phoneNumber: otherInfo?.phone,
+      salonName: otherInfo?.salonName,
+      type: otherInfo?.type,
+    };
+  } else if (otherInfo?.type) {
+    formatedUserInfo = {
+      uid,
+      email,
+      provider: providerData[0].providerId,
+      photoUrl: photoURL,
+      emailVerified,
+      isAnonymous,
+      name: otherInfo?.name,
+      lastname: otherInfo?.lastname,
+      phoneNumber: otherInfo?.phone,
+      type: otherInfo?.type,
+    };
+  }
   if (shouldCreateNewUser) {
     return formatedUserInfo;
   }
