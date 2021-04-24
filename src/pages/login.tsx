@@ -5,13 +5,22 @@ import loginData from 'data/login.json';
 import Layout from 'ui/Layout';
 import MainLogin from 'modules/auth/containers/MainLogin';
 import { ImageContainer } from 'modules/auth/containers/styles';
+import { useAuth } from 'lib/auth';
+import filterHeaderLink from 'utils/filterHeaderLink';
+import { useRouter } from 'next/router';
 
 const Login = ({
   Headerlinks,
   loginData,
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+  const auth = useAuth();
+  if (auth.user.email) {
+    router.replace('/');
+  }
+  const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   return (
-    <Layout variant="secondary" links={Headerlinks}>
+    <Layout variant="secondary" links={newHeaderlinks}>
       <ImageContainer>
         <MainLogin {...{ loginData }} />
       </ImageContainer>

@@ -6,14 +6,23 @@ import hairdresserSignup from 'data/hairdresserSignup.json';
 import Layout from 'ui/Layout';
 import MainSignup from 'modules/auth/containers/MainSignup';
 import { ImageContainer } from 'modules/auth/containers/styles';
+import filterHeaderLink from 'utils/filterHeaderLink';
+import { useAuth } from 'lib/auth';
+import { useRouter } from 'next/router';
 
 const Signup = ({
   Headerlinks,
   userSignup,
   hairdresserSignup,
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
+  const router = useRouter();
+  const auth = useAuth();
+  if (auth.user.email) {
+    router.replace('/');
+  }
+  const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   return (
-    <Layout variant="secondary" links={Headerlinks} marginBottom={16}>
+    <Layout variant="secondary" links={newHeaderlinks}>
       <ImageContainer>
         <MainSignup {...{ userSignup, hairdresserSignup }} />
       </ImageContainer>

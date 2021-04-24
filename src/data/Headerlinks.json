@@ -7,11 +7,25 @@
   {
     "id": 2,
     "name": "Login",
-    "href": "/login"
+    "href": "/login",
+    "$if": {
+      "user": false
+    }
   },
   {
     "id": 3,
     "name": "Signup",
-    "href": "/signup"
+    "href": "/signup",
+    "$if": {
+      "user": false
+    }
+  },
+  {
+    "id": 4,
+    "name": "Deconnecte",
+    "href": "/logout",
+    "$if": {
+      "user": true
+    }
   }
 ]
