@@ -2,10 +2,20 @@ import React from 'react';
 import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import { Section } from 'interfaces';
-import { PhoneInputContainer } from './style';
+import { ErrorPhoneLabel, PhoneInputContainer } from './style';
 import { Controller } from 'react-hook-form';
 
-const TelInput = ({ useFormMthods, name, required, schema }: Section) => {
+interface TelInputProps {
+  errorString?: string;
+}
+
+const TelInput = ({
+  useFormMthods,
+  name,
+  required,
+  schema,
+  errorString,
+}: Section & TelInputProps) => {
   const [state, onChange] = React.useState('');
   if (useFormMthods?.control && name) {
     let validPhoneNumber = false;
@@ -32,7 +42,7 @@ const TelInput = ({ useFormMthods, name, required, schema }: Section) => {
       return false;
     };
     return (
-      <PhoneInputContainer>
+      <PhoneInputContainer error={!!errorString}>
         <Controller
           name={name}
           control={useFormMthods?.control}
@@ -74,6 +84,11 @@ const TelInput = ({ useFormMthods, name, required, schema }: Section) => {
             validate: () => validPhoneNumber || schema?.errorMessage?.validate,
           }}
         />
+        {errorString && (
+          <ErrorPhoneLabel data-testid="phone-input-error">
+            {errorString}
+          </ErrorPhoneLabel>
+        )}
       </PhoneInputContainer>
     );
   }

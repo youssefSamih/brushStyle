@@ -21,7 +21,7 @@ const ErrorNotifications = ({
       }
       setState(errorMessage);
     }
-  }, [Object.keys(errors).map((key) => errors[key]).length]);
+  }, [...Object.keys(errors).map((key) => errors[key])]);
   const onClick = (msg: string) => {
     setState([...state.filter((val) => val !== msg)]);
   };

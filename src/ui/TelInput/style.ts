@@ -40,4 +40,26 @@ export const PhoneInputContainer = styled.div<InputSProps>`
       }
     }
   }
+  p {
+    color: ${({ theme, error }) =>
+      error ? theme.colors.stateColors.danger.main : theme.colors.grey[700]};
+    font-size: 0.87em;
+    max-width: 100%;
+    position: absolute;
+    @media only screen and (max-width: ${({ theme }) =>
+        theme.breakpoints.lg}) and (min-width: ${({ theme }) =>
+        theme.breakpoints.md}) {
+      bottom: -4rem;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+      font-size: 0.75em;
+    }
+  }
+`;
+
+export const ErrorPhoneLabel = styled.p`
+  width: 20%;
+  text-align: right;
+  margin: 0;
 `;

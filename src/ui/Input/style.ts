@@ -70,7 +70,6 @@ export const InputContainer = styled.div<InputSProps>`
     font-size: 0.87em;
     max-width: 100%;
     position: absolute;
-    bottom: -3rem;
     @media only screen and (max-width: ${({ theme }) =>
         theme.breakpoints.lg}) and (min-width: ${({ theme }) =>
         theme.breakpoints.md}) {

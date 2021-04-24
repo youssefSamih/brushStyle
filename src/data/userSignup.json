@@ -114,13 +114,14 @@
     },
     {
       "widget": "DividerWidget",
-      "marginBottom": "3rem",
+      "marginBottom": "5rem",
       "withoutBorder": true
     },
     {
       "widget": "ButtonWidget",
       "children": "Envoyer",
       "type": "submit",
+      "disabled": true,
       "column": 12
     }
   ]
