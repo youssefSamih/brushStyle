@@ -1,4 +1,7 @@
-import { handleErrorConditionsFormat } from 'core/utils/ErrorFormatting';
+import {
+  handleErrorConditionsFormat,
+  handleErrorMessage,
+} from 'core/utils/ErrorFormatting';
 import { useWidgetWatch } from 'core/utils/hooks/useWidgetWatch';
 import { Section } from 'interfaces';
 import React from 'react';
@@ -15,6 +18,7 @@ export const InputWidget = ({
   useFormMthods,
   $if,
   schema,
+  canHideInputValue,
 }: Section) => {
   const { value } = useWidgetWatch({ $if, control: useFormMthods?.control });
   const inputValueChange =
@@ -37,6 +41,18 @@ export const InputWidget = ({
           placeholder,
           type,
           required,
+          canHideInputValue,
+          handleErrorConditionsFormat: handleErrorConditionsFormat(
+            schema,
+            useFormMthods?.watch
+          ),
+          errorString: name
+            ? handleErrorMessage(
+                useFormMthods?.formState.errors,
+                name,
+                useFormMthods?.formState.isDirty
+              )
+            : {},
           register: name
             ? useFormMthods?.register(name, {
                 required,

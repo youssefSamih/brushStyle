@@ -6,7 +6,8 @@ import {
   UseFormUnregister,
 } from 'react-hook-form';
 import { useTheme } from 'styled-components';
-import { InputStyle } from './style';
+import { EyeClosed, EyeOpen } from 'ui/Icons';
+import { ErrorLabel, Icon, InputContainer, InputStyle, Label } from './style';
 
 interface InputProps {
   id?: string;
@@ -48,6 +49,7 @@ interface InputProps {
 }
 
 const Input = ({
+  canHideInputValue = false,
   name,
   type,
   placeholder,
@@ -66,31 +68,59 @@ const Input = ({
   unregister,
 }: InputProps) => {
   const theme = useTheme();
+  const [hideInputValue, setHideInputValue] = React.useState<boolean>(true);
   React.useEffect(() => {
     return () => {
       name && unregister?.(name);
     };
   }, []);
   return (
-    <InputStyle
-      id={name}
-      name={name}
-      type={type}
-      placeholder={placeholder}
-      state={state}
-      required={required}
-      border={border}
-      align={align}
-      size={size}
-      aria-label={label}
-      autoComplete={autocomplete}
-      bg={bg === 'grey' ? theme.colors.grey[100] : undefined}
-      error={!!errorString}
-      color={color}
-      maxLength={maxLength}
-      data-testid="input-id"
-      {...register}
-    />
+    <InputContainer state={state} error={!!errorString}>
+      {label && (
+        <Label
+          state={state}
+          isRequired={required}
+          border={border}
+          data-testid="input-label"
+        >
+          {label}
+        </Label>
+      )}
+      <InputStyle
+        id={name}
+        name={name}
+        type={
+          canHideInputValue && hideInputValue
+            ? 'password'
+            : canHideInputValue && !hideInputValue
+            ? 'text'
+            : type
+        }
+        placeholder={placeholder}
+        state={state}
+        required={required}
+        border={border}
+        align={align}
+        size={size}
+        aria-label={label}
+        autoComplete={autocomplete}
+        bg={bg === 'grey' ? theme.colors.grey[100] : undefined}
+        error={!!errorString}
+        color={color}
+        maxLength={maxLength}
+        data-testid="input-id"
+        {...register}
+      />
+      {errorString && (
+        <ErrorLabel data-testid="input-error">{errorString}</ErrorLabel>
+      )}
+      {canHideInputValue && !hideInputValue && (
+        <EyeClosed as={Icon} onClick={() => setHideInputValue(true)} />
+      )}
+      {canHideInputValue && hideInputValue && (
+        <EyeOpen as={Icon} onClick={() => setHideInputValue(false)} />
+      )}
+    </InputContainer>
   );
 };
 

@@ -3,8 +3,13 @@ import { UnpackNestedValue } from 'react-hook-form';
 /*
  ** handles extracting error string from react hook form error object
  */
-export const handleErrorMessage = (errors: any, key: string) => {
-  if (!errors) return '';
+export const handleErrorMessage = (
+  errors: any,
+  key: string,
+  isDirty?: boolean
+) => {
+  if (!isDirty) return '';
+  else if (!errors) return '';
   const getErrorFieldName = key.split('.');
   const fieldName =
     errors[getErrorFieldName[0]] &&

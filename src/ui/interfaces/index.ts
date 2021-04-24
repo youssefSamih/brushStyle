@@ -20,6 +20,7 @@ export interface InputSProps {
   size?: number;
   align?: string;
   error?: boolean;
+  isRequired?: boolean;
 }
 
 export interface StyledButtonProps {

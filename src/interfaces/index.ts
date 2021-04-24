@@ -13,6 +13,7 @@ export interface Section {
   disabled?: boolean;
   value?: string;
   loading?: boolean;
+  canHideInputValue?: boolean;
   options?: {
     label: string;
     value: string;
@@ -43,4 +44,9 @@ export type Tab = {
 export interface ImageProps {
   bg?: string;
   heightImage?: number;
+}
+export interface authErrorResponse {
+  a?: unknown;
+  code?: string;
+  message: string;
 }

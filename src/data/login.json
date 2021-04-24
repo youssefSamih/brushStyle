@@ -19,6 +19,11 @@
       }
     },
     {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
+    },
+    {
       "widget": "InputWidget",
       "placeholder": "Mot de passe",
       "name": "login.password",
@@ -37,6 +42,11 @@
           "maxLength": "Le mot de passe dépasse la longueur maximale de 18"
         }
       }
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
     },
     {
       "widget": "ButtonWidget",

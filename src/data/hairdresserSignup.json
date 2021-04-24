@@ -19,6 +19,11 @@
       ]
     },
     {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
+    },
+    {
       "widget": "InputWidget",
       "name": "hairdresser.name",
       "placeholder": "Nom",
@@ -76,6 +81,11 @@
       }
     },
     {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
+    },
+    {
       "widget": "InputWidget",
       "placeholder": "Email",
       "name": "hairdresser.email",
@@ -105,6 +115,11 @@
           "required": "Le numero de telephone est obligatoire"
         }
       }
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
     },
     {
       "widget": "InputWidget",
@@ -149,6 +164,11 @@
           "required": "confirmer du mot de passe est obligatoire"
         }
       }
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
     },
     {
       "widget": "ButtonWidget",

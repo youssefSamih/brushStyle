@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext, createContext } from 'react';
 import Router from 'next/router';
 import firebase from './firebase';
 import { createUser } from './db';
+import { authErrorResponse } from 'interfaces';
+import { translate } from 'utils/translate';
 
 interface userInfo {
   uid: any;
@@ -33,6 +35,7 @@ export const useAuth = () => {
 const useFirebaseAuth = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
+  const [errors, setError] = useState<authErrorResponse>();
 
   const handleUser = async (rawUser: any, shouldCreateNewUser: boolean) => {
     if (rawUser) {
@@ -77,14 +80,19 @@ const useFirebaseAuth = () => {
     rest: any
   ) => {
     setLoading(true);
-    const response = await firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password);
-    if (response) {
-      handleUser({ ...response.user, ...rest }, true);
-      if (redirect) {
-        Router.push(redirect);
+    try {
+      const response = await firebase
+        .auth()
+        .createUserWithEmailAndPassword(email, password);
+      if (response) {
+        handleUser({ ...response.user, ...rest }, true);
+        if (redirect) {
+          Router.push(redirect);
+        }
       }
+    } catch (error) {
+      setError(translate(error));
+      setLoading(false);
     }
   };
 
@@ -105,6 +113,7 @@ const useFirebaseAuth = () => {
   return {
     user,
     loading,
+    errors,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     signout,

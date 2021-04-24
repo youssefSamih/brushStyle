@@ -28,6 +28,11 @@
       }
     },
     {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
+    },
+    {
       "widget": "InputWidget",
       "placeholder": "Email",
       "name": "user.email",
@@ -57,6 +62,11 @@
           "required": "Le numero de telephone est obligatoire"
         }
       }
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
     },
     {
       "widget": "InputWidget",
@@ -101,6 +111,11 @@
           "required": "confirm du mot de passe est obligatoire"
         }
       }
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "3rem",
+      "withoutBorder": true
     },
     {
       "widget": "ButtonWidget",
