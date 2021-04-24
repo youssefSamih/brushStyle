@@ -63,16 +63,20 @@ const useFirebaseAuth = () => {
   ) => {
     setLoading(true);
     setError(undefined);
-    return firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
-      .then((response) => {
+    try {
+      const response = await firebase
+        .auth()
+        .signInWithEmailAndPassword(email, password);
+      if (response) {
         handleUser({ ...response.user });
-
         if (redirect) {
           Router.push(redirect);
         }
-      });
+      }
+    } catch (error) {
+      setError(translate(error));
+      setLoading(false);
+    }
   };
 
   const createUserWithEmailAndPassword = async (
@@ -123,7 +127,7 @@ const useFirebaseAuth = () => {
   };
 };
 
-const formatUser = (user: userInfo, shouldCreateNewUser: boolean) => {
+const formatUser = (user: userInfo, shouldCreateNewUser?: boolean) => {
   const {
     uid,
     email,
