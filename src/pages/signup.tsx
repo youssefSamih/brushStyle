@@ -17,9 +17,11 @@ const Signup = ({
 }: InferGetServerSidePropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const auth = useAuth();
-  if (auth.user.email) {
-    router.replace('/login');
-  }
+  React.useEffect(() => {
+    if (!auth.user.email || !auth.user.emailVerified) {
+      router?.push('/login');
+    }
+  }, [auth]);
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   return (
     <Layout variant="secondary" links={newHeaderlinks}>

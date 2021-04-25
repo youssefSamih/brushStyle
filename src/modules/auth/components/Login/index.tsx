@@ -11,11 +11,12 @@ const Login = ({ loginData }: { loginData: typeof loginSections }) => {
   const auth = useAuth();
   const loading = auth.loading;
   const apiErrors = auth.errors;
-  const emailNotVerifiedError = auth.user.emailVerified
-    ? {}
-    : customMessageError.filter(
-        (errMsg) => errMsg.code === codeEmailNotVerified
-      )[0];
+  const emailNotVerifiedError =
+    auth.user.emailVerified === false
+      ? customMessageError.filter(
+          (errMsg) => errMsg.code === codeEmailNotVerified
+        )[0]
+      : {};
   const useFormMthods = useForm({
     mode: 'onChange',
     reValidateMode: 'onSubmit',

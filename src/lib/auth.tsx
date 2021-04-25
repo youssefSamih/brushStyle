@@ -44,6 +44,13 @@ const useFirebaseAuth = () => {
       const user: any = formatUser(rawUser, shouldCreateNewUser);
       const { token, ...userWithoutToken } = user;
       if (shouldCreateNewUser) {
+        console.log(userWithoutToken);
+        const currentUser = await firebase.auth().currentUser;
+        currentUser?.updateProfile({
+          displayName:
+            userWithoutToken.salonName ||
+            `${userWithoutToken.name} ${userWithoutToken.lastname}`,
+        });
         createUser(user.uid, userWithoutToken);
       }
       setUser(user);
@@ -98,11 +105,11 @@ const useFirebaseAuth = () => {
             .auth()
             .currentUser?.sendEmailVerification();
           console.log(sendVerificationEmail);
+          if (redirect) {
+            Router.push(redirect);
+          }
         } catch (error) {
           console.log(error);
-        }
-        if (redirect) {
-          Router.push(redirect);
         }
       }
     } catch (error) {
@@ -118,12 +125,12 @@ const useFirebaseAuth = () => {
       .then(() => handleUser(false, false));
   };
 
-  // useEffect(() => {
-  //   const unsubscribe = firebase
-  //     .auth()
-  //     .onIdTokenChanged((userId) => handleUser(userId, false));
-  //   return () => unsubscribe();
-  // }, []);
+  useEffect(() => {
+    const unsubscribe = firebase
+      .auth()
+      .onIdTokenChanged((userId) => handleUser(userId, false));
+    return () => unsubscribe();
+  }, []);
 
   return {
     user,
