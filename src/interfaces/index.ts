@@ -14,6 +14,7 @@ export interface Section {
   value?: string;
   loading?: boolean;
   canHideInputValue?: boolean;
+  link?: string;
   options?: {
     label: string;
     value: string;

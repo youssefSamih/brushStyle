@@ -44,7 +44,6 @@ const useFirebaseAuth = () => {
       const user: any = formatUser(rawUser, shouldCreateNewUser);
       const { token, ...userWithoutToken } = user;
       if (shouldCreateNewUser) {
-        console.log(userWithoutToken);
         const currentUser = await firebase.auth().currentUser;
         currentUser?.updateProfile({
           displayName:
@@ -104,7 +103,6 @@ const useFirebaseAuth = () => {
           const sendVerificationEmail = await firebase
             .auth()
             .currentUser?.sendEmailVerification();
-          console.log(sendVerificationEmail);
           if (redirect) {
             Router.push(redirect);
           }

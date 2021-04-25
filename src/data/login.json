@@ -49,6 +49,16 @@
       "withoutBorder": true
     },
     {
+      "widget": "LinkWidget",
+      "link": "/forgot-password",
+      "label": "Mot de passe oublié?"
+    },
+    {
+      "widget": "DividerWidget",
+      "marginBottom": "1rem",
+      "withoutBorder": true
+    },
+    {
       "widget": "ButtonWidget",
       "children": "Envoyer",
       "type": "submit",
