@@ -2,33 +2,33 @@ import React from 'react';
 import RenderWidgets from 'core/RenderWidgets';
 import { useForm } from 'react-hook-form';
 import { useAuth } from 'lib/auth';
-import ErrorNotifications from '../ErrorNotifications';
+import Notifications from 'modules/auth/components/Notifications';
 
 const Hairdresser = ({ hairdresserSignup }: any) => {
   const [state, setstate] = React.useState(false);
   const auth = useAuth();
-  const loading = auth.loading;
-  const apiErrors = auth.errors;
+  const loading = auth?.loading;
+  const apiMsg = auth?.msg;
   const useFormMthods = useForm({
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
-  const errors = {
-    apiErrors: { ...apiErrors },
+  const messages = {
+    apiMsg: { ...apiMsg },
   };
   const onSubmit = (e: any) => {
     const { email, password, ...rest } = e[hairdresserSignup?.formKey];
     Object.keys(rest).forEach((key) => {
       return rest[key] === undefined && delete rest[key];
     });
-    auth.createUserWithEmailAndPassword(email, password, '/login', {
+    auth?.createUserWithEmailAndPassword(email, password, '/login', {
       otherInfo: rest,
     });
     setstate(true);
   };
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
-      {state && errors && <ErrorNotifications {...{ errors }} />}
+      {state && messages && <Notifications {...{ messages }} />}
       <RenderWidgets
         singleStepWidgets={hairdresserSignup}
         {...{ useFormMthods, loading }}

@@ -16,10 +16,10 @@ const Login = ({
   const router = useRouter();
   const auth = useAuth();
   React.useEffect(() => {
-    if (auth.user.emailVerified) {
+    if (auth?.user.emailVerified) {
       router.replace('/');
     }
-  }, []);
+  }, [auth]);
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   return (
     <Layout variant="secondary" links={newHeaderlinks}>

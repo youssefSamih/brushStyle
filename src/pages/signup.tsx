@@ -18,8 +18,10 @@ const Signup = ({
   const router = useRouter();
   const auth = useAuth();
   React.useEffect(() => {
-    if (!auth.user.email || !auth.user.emailVerified) {
+    if (auth?.user.email && !auth.user.emailVerified) {
       router?.push('/login');
+    } else if (auth?.user.email) {
+      router?.push('/');
     }
   }, [auth]);
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);

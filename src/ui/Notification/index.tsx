@@ -8,7 +8,7 @@ interface NotificationPorps {
   msg: string;
   urlLabel?: string;
   url?: string;
-  state: 'danger';
+  state: 'danger' | string;
   onClick?: ((e: MouseEvent<ElementType, MouseEvent>) => void) &
     ((e: MouseEvent) => void);
   cb?: () => void;

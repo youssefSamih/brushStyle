@@ -1,0 +1,12 @@
+[
+  {
+    "type": "danger",
+    "code": "auth/email-not-verified",
+    "message": "En a envoyer un email de confirmation s'il vous plait, verifier votre adresse e-mail"
+  },
+  {
+    "type": "info",
+    "code": "auth/email-forgot-password-has-send",
+    "message": "En a envoyer un email de confirmation s'il vous plait, verifier votre adresse e-mail"
+  }
+]

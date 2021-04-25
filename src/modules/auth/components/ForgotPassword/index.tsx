@@ -1,20 +1,24 @@
 import RenderWidgets from 'core/RenderWidgets';
 import { useForm } from 'react-hook-form';
-import loginSections from 'data/login.json';
-import customMessage from 'data/customMessage.json';
+import forgotPasswordSections from 'data/forgotPassword.json';
+import customMessageError from 'data/customMessage.json';
 import Notifications from 'modules/auth/components/Notifications';
 import React from 'react';
 import { useAuth } from 'lib/auth';
 
 const codeEmailNotVerified = 'auth/email-not-verified';
-const Login = ({ loginData }: { loginData: typeof loginSections }) => {
+const ForgotPassword = ({
+  forgotPasswordData,
+}: {
+  forgotPasswordData: typeof forgotPasswordSections;
+}) => {
   const auth = useAuth();
   const loading = auth?.loading;
   const apiMsg = auth?.msg;
   const emailNotVerifiedError =
     auth?.user.emailVerified === false
-      ? customMessage.filter(
-          (errMsg) => errMsg.code === codeEmailNotVerified
+      ? customMessageError.filter(
+          (errMsg: { code: string }) => errMsg.code === codeEmailNotVerified
         )[0]
       : {};
   const useFormMthods = useForm({
@@ -25,18 +29,18 @@ const Login = ({ loginData }: { loginData: typeof loginSections }) => {
     apiMsg: { ...apiMsg, ...emailNotVerifiedError },
   };
   const onSubmit = (e: any) => {
-    const { email, password } = e[loginData?.formKey];
-    auth?.signInWithEmailAndPassword(email, password, '/');
+    const { email } = e[forgotPasswordData?.formKey];
+    auth?.forgotPassword(email);
   };
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
       {messages && <Notifications {...{ messages }} />}
       <RenderWidgets
-        singleStepWidgets={loginData}
+        singleStepWidgets={forgotPasswordData}
         {...{ useFormMthods, loading }}
       />
     </form>
   );
 };
 
-export default Login;
+export default ForgotPassword;

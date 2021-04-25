@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext, createContext } from 'react';
 import Router from 'next/router';
+import customMessage from 'data/customMessage.json';
 import firebase from './firebase';
 import { createUser } from './db';
-import { authErrorResponse } from 'interfaces';
+import { authContextPops, authErrorResponse } from 'interfaces';
 import { translate } from 'utils/translate';
 
+const codeForgotEmailInfo = 'auth/email-forgot-password-has-send';
 interface userInfo {
   uid: any;
   email: any;
@@ -23,7 +25,7 @@ interface userInfo {
   };
 }
 
-const authContext = createContext<any>(null);
+const authContext = createContext<authContextPops | undefined>(undefined);
 
 export const AuthProvider: React.FC = ({ children }) => {
   const auth = useFirebaseAuth();
@@ -37,7 +39,7 @@ export const useAuth = () => {
 const useFirebaseAuth = () => {
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(false);
-  const [errors, setError] = useState<authErrorResponse>();
+  const [msg, setMsg] = useState<authErrorResponse>();
 
   const handleUser = async (rawUser: any, shouldCreateNewUser?: boolean) => {
     if (rawUser) {
@@ -68,7 +70,7 @@ const useFirebaseAuth = () => {
     redirect: string
   ) => {
     setLoading(true);
-    setError(undefined);
+    setMsg(undefined);
     try {
       const response = await firebase
         .auth()
@@ -80,7 +82,7 @@ const useFirebaseAuth = () => {
         }
       }
     } catch (error) {
-      setError(translate(error));
+      setMsg(translate(error));
       setLoading(false);
     }
   };
@@ -92,7 +94,7 @@ const useFirebaseAuth = () => {
     rest: any
   ) => {
     setLoading(true);
-    setError(undefined);
+    setMsg(undefined);
     try {
       const response = await firebase
         .auth()
@@ -100,9 +102,7 @@ const useFirebaseAuth = () => {
       if (response) {
         handleUser({ ...response.user, ...rest }, true);
         try {
-          const sendVerificationEmail = await firebase
-            .auth()
-            .currentUser?.sendEmailVerification();
+          await firebase.auth().currentUser?.sendEmailVerification();
           if (redirect) {
             Router.push(redirect);
           }
@@ -111,7 +111,7 @@ const useFirebaseAuth = () => {
         }
       }
     } catch (error) {
-      setError(translate(error));
+      setMsg(translate(error));
       setLoading(false);
     }
   };
@@ -123,7 +123,24 @@ const useFirebaseAuth = () => {
       .then(() => handleUser(false, false));
   };
 
+  const forgotPassword = async (emailAddress: string) => {
+    const auth = firebase.auth();
+    setLoading(true);
+    setMsg(undefined);
+    try {
+      await auth.sendPasswordResetEmail(emailAddress);
+      setMsg(
+        customMessage.filter((val) => val.code === codeForgotEmailInfo)[0]
+      );
+      setLoading(false);
+    } catch (e) {
+      setMsg(translate(e));
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
+    setMsg(undefined);
     const unsubscribe = firebase
       .auth()
       .onIdTokenChanged((userId) => handleUser(userId, false));
@@ -133,9 +150,10 @@ const useFirebaseAuth = () => {
   return {
     user,
     loading,
-    errors,
+    msg,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
+    forgotPassword,
     signout,
   };
 };

@@ -51,3 +51,22 @@ export interface authErrorResponse {
   code?: string;
   message: string;
 }
+
+export interface authContextPops {
+  user: any;
+  loading: boolean;
+  msg?: authErrorResponse;
+  signInWithEmailAndPassword: (
+    email: string,
+    password: string,
+    redirect: string
+  ) => Promise<void>;
+  createUserWithEmailAndPassword: (
+    email: string,
+    password: string,
+    redirect: string,
+    rest: any
+  ) => Promise<void>;
+  forgotPassword: (emailAddress: string) => Promise<void>;
+  signout: () => Promise<any>;
+}

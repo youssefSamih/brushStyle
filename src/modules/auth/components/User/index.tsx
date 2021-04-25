@@ -2,30 +2,30 @@ import RenderWidgets from 'core/RenderWidgets';
 import { useAuth } from 'lib/auth';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import ErrorNotifications from '../ErrorNotifications';
+import Notifications from 'modules/auth/components/Notifications';
 
 const User = ({ userSignup }: any) => {
   const [state, setstate] = React.useState(false);
   const auth = useAuth();
-  const loading = auth.loading;
-  const apiErrors = auth.errors;
+  const loading = auth?.loading;
+  const apiMsg = auth?.msg;
   const useFormMthods = useForm({
     mode: 'onChange',
     reValidateMode: 'onSubmit',
   });
-  const errors = {
-    apiErrors: { ...apiErrors },
+  const messages = {
+    apiMsg: { ...apiMsg },
   };
   const onSubmit = (e: any) => {
     const { email, password, ...rest } = e[userSignup?.formKey];
-    auth.createUserWithEmailAndPassword(email, password, '/login', {
+    auth?.createUserWithEmailAndPassword(email, password, '/login', {
       otherInfo: rest,
     });
     setstate(true);
   };
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
-      {state && errors && <ErrorNotifications {...{ errors }} />}
+      {state && messages && <Notifications {...{ messages }} />}
       <RenderWidgets
         singleStepWidgets={userSignup}
         {...{ useFormMthods, loading }}
