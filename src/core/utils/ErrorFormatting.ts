@@ -1,4 +1,4 @@
-import { UnpackNestedValue } from 'react-hook-form';
+import { DeepMap, UnpackNestedValue, FieldValues } from 'react-hook-form';
 
 /*
  ** handles extracting error string from react hook form error object
@@ -6,9 +6,9 @@ import { UnpackNestedValue } from 'react-hook-form';
 export const handleErrorMessage = (
   errors: any,
   key: string,
-  isDirty?: boolean
+  dirtyField?: DeepMap<FieldValues, true>
 ) => {
-  if (!isDirty) return '';
+  if (!dirtyField?.[key.split('.')?.[0]]?.[key.split('.')?.[1]]) return '';
   else if (!errors) return '';
   const getErrorFieldName = key.split('.');
   const fieldName =

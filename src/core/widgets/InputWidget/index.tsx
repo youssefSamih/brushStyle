@@ -50,7 +50,7 @@ export const InputWidget = ({
             ? handleErrorMessage(
                 useFormMthods?.formState.errors,
                 name,
-                useFormMthods?.formState.isDirty
+                useFormMthods?.formState.dirtyFields
               )
             : {},
           register: name

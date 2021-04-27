@@ -3,7 +3,7 @@ import 'react-phone-input-2/lib/style.css';
 import PhoneInput from 'react-phone-input-2';
 import { Section } from 'interfaces';
 import { ErrorPhoneLabel, PhoneInputContainer } from './style';
-import { Controller } from 'react-hook-form';
+import { Controller, DeepMap, FieldValues } from 'react-hook-form';
 
 interface TelInputProps {
   errorString?: string;
@@ -18,14 +18,14 @@ const TelInput = ({
 }: Section & TelInputProps) => {
   const [state, onChange] = React.useState('');
   if (useFormMthods?.control && name) {
-    let validPhoneNumber = false;
+    let validPhoneNumber: boolean;
     const validatePhoneNumber = (
       inputNumber: string,
       country: any,
-      isDirty: boolean,
+      dirtyField: DeepMap<FieldValues, true>,
       phoneLength: number
     ) => {
-      if (isDirty) {
+      if (dirtyField?.[name.split('.')?.[0]]?.[name.split('.')?.[1]]) {
         if (
           (inputNumber &&
             inputNumber?.replace(country.dialCode, '')?.trim() === '') ||
@@ -39,7 +39,7 @@ const TelInput = ({
         return true;
       }
       validPhoneNumber = false;
-      return false;
+      return true;
     };
     return (
       <PhoneInputContainer error={!!errorString}>
@@ -71,7 +71,7 @@ const TelInput = ({
                   return validatePhoneNumber(
                     inputNumber,
                     country,
-                    props.formState.isDirty,
+                    props.formState.dirtyFields,
                     phoneLength
                   );
                 }}
