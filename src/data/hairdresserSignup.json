@@ -13,8 +13,8 @@
           "value": "Coiffeur indépendante"
         },
         {
-          "label": "Salon",
-          "value": "Salon"
+          "label": "Salon de coiffure",
+          "value": "Salon de coiffure"
         }
       ]
     },
@@ -68,7 +68,7 @@
       "required": true,
       "column": 12,
       "$if": {
-        "$eq": ["_KEY_:hairdresser.type", "Salon"],
+        "$eq": ["_KEY_:hairdresser.type", "Salon de coiffure"],
         "defaultValue": "Coiffeur indépendante"
       },
       "schema": {

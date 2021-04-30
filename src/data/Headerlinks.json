@@ -6,7 +6,7 @@
   },
   {
     "id": 2,
-    "name": "Login",
+    "name": "Conexion",
     "href": "/login",
     "$if": {
       "user": false
@@ -14,7 +14,7 @@
   },
   {
     "id": 3,
-    "name": "Signup",
+    "name": "Créer mon compte",
     "href": "/signup",
     "$if": {
       "user": false
@@ -22,7 +22,7 @@
   },
   {
     "id": 4,
-    "name": "Deconnecte",
+    "name": "Déconnexion",
     "href": "/logout",
     "$if": {
       "user": true
