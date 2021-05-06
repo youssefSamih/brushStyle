@@ -13,3 +13,75 @@
   font-weight: 800;
   font-style: italic;
 }
+
+@font-face {
+  font-family: 'Fiorina Grande Light';
+  src: url('./fonts/FiorinaGrande-Light.woff2') format('woff2'),
+    url('./fonts/FiorinaGrande-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Grande Light Italic';
+  src: url('./fonts/FiorinaGrande-LightItalic.woff2') format('woff2'),
+    url('./fonts/FiorinaGrande-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Subhead Light';
+  src: url('./fonts/FiorinaSubhead-Light.woff2') format('woff2'),
+    url('./fonts/FiorinaSubhead-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Subhead Light Italic';
+  src: url('./fonts/FiorinaSubhead-LightItalic.woff2') format('woff2'),
+    url('./fonts/FiorinaSubhead-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Text Light';
+  src: url('./fonts/FiorinaText-Light.woff2') format('woff2'),
+    url('./fonts/FiorinaText-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Text Light Italic';
+  src: url('./fonts/FiorinaText-LightItalic.woff2') format('woff2'),
+    url('./fonts/FiorinaText-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Title Light';
+  src: url('./fonts/FiorinaTitle-Light.woff2') format('woff2'),
+    url('./fonts/FiorinaTitle-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Fiorina Title Light Italic';
+  src: url('./fonts/FiorinaTitle-LightItalic.woff2') format('woff2'),
+    url('./fonts/FiorinaTitle-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}

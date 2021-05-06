@@ -2,8 +2,8 @@ import { DefaultTheme } from 'styled-components';
 
 const theme: DefaultTheme = {
   fonts: {
-    primary: 'Produkt',
-    secondary: 'HCo Gotham SSm',
+    primary: 'Fiorina Text Light Italic',
+    secondary: 'Produkt',
     weight: {
       hairline: '100',
       thin: '200',

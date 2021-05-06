@@ -13,7 +13,7 @@ const Index = ({
   const router = useRouter();
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
   React.useEffect(() => {
-    if (!auth.user.email || !auth.user.emailVerified) {
+    if (!auth?.user.email || !auth?.user.emailVerified) {
       router?.push('/login');
     }
   }, []);

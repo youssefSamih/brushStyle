@@ -31,7 +31,7 @@ export default createGlobalStyle<globalTypesStyles>`
   }
 
   h1, h2, h3, h4, h5, a, p, span {
-    font-family: HCo Gotham SSm, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: Produkt, -apple-system, BlinkMacSystemFont, sans-serif;
     font-weight: 400;
     line-height: 1.2;
   }
