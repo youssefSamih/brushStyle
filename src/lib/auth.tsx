@@ -87,6 +87,17 @@ const useFirebaseAuth = () => {
     }
   };
 
+  const sendEmailConfirmation = async (redirect?: string) => {
+    try {
+      await firebase.auth().currentUser?.sendEmailVerification();
+      if (redirect) {
+        Router.push(redirect);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const createUserWithEmailAndPassword = async (
     email: string,
     password: string,
@@ -101,14 +112,7 @@ const useFirebaseAuth = () => {
         .createUserWithEmailAndPassword(email, password);
       if (response) {
         handleUser({ ...response.user, ...rest }, true);
-        try {
-          await firebase.auth().currentUser?.sendEmailVerification();
-          if (redirect) {
-            Router.push(redirect);
-          }
-        } catch (error) {
-          console.log(error);
-        }
+        sendEmailConfirmation(redirect);
       }
     } catch (error) {
       setMsg(translate(error));
@@ -141,10 +145,15 @@ const useFirebaseAuth = () => {
 
   useEffect(() => {
     setMsg(undefined);
-    const unsubscribe = firebase
-      .auth()
-      .onIdTokenChanged((userId) => handleUser(userId, false));
-    return () => unsubscribe();
+    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
+      if (user?.emailVerified) {
+        setMsg(undefined);
+        handleUser(user, false);
+      }
+    });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return {
@@ -155,6 +164,7 @@ const useFirebaseAuth = () => {
     createUserWithEmailAndPassword,
     forgotPassword,
     signout,
+    sendEmailConfirmation,
   };
 };
 

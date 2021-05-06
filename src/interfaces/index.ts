@@ -69,4 +69,5 @@ export interface authContextPops {
   ) => Promise<void>;
   forgotPassword: (emailAddress: string) => Promise<void>;
   signout: () => Promise<any>;
+  sendEmailConfirmation: (redirect?: string) => Promise<void>;
 }
