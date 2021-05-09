@@ -30,7 +30,7 @@ const Hairdresser = ({ hairdresserSignup }: any) => {
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
       {state && messages && <Notifications {...{ messages }} />}
       <RenderWidgets
-        singleStepWidgets={hairdresserSignup}
+        dataWidgets={hairdresserSignup}
         {...{ useFormMthods, loading }}
       />
     </form>

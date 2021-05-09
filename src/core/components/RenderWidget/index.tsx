@@ -9,7 +9,7 @@ const RenderWidget = ({
   loading,
 }: {
   elem: Section;
-  useFormMthods: UseFormReturn<FieldValues>;
+  useFormMthods?: UseFormReturn<FieldValues>;
   loading?: boolean;
 }) => {
   const Widget = widgets[elem.widget];

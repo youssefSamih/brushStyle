@@ -1,0 +1,10 @@
+[
+  {
+    "widget": "SliderWidget",
+    "images": [
+      { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+      { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+      { "uri": "https://via.placeholder.com/1000x600", "alt": "test" }
+    ]
+  }
+]

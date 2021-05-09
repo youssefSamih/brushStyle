@@ -5,6 +5,7 @@ import filterHeaderLink from 'utils/filterHeaderLink';
 import { useAuth } from 'lib/auth';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Main from 'modules/landing/containers/Main';
 
 const Index = ({
   Headerlinks,
@@ -19,7 +20,7 @@ const Index = ({
   }, []);
   return (
     <Layout variant="secondary" links={newHeaderlinks}>
-      <div>hello</div>
+      <Main />
     </Layout>
   );
 };

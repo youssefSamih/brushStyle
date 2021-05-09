@@ -10,7 +10,7 @@ const RenderSections = ({
   loading,
 }: {
   sections: Section[];
-  useFormMthods: UseFormReturn<FieldValues>;
+  useFormMthods?: UseFormReturn<FieldValues>;
   loading?: boolean;
 }) => {
   return (

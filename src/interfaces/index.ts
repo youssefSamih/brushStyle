@@ -14,6 +14,7 @@ export interface Section {
   value?: string;
   loading?: boolean;
   canHideInputValue?: boolean;
+  images?: ImageType[];
   link?: string;
   options?: {
     label: string;
@@ -70,4 +71,9 @@ export interface authContextPops {
   forgotPassword: (emailAddress: string) => Promise<void>;
   signout: () => Promise<any>;
   sendEmailConfirmation: (redirect?: string) => Promise<void>;
+}
+
+export interface ImageType {
+  uri: string;
+  alt?: string;
 }

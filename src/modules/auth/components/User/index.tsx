@@ -26,10 +26,7 @@ const User = ({ userSignup }: any) => {
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
       {state && messages && <Notifications {...{ messages }} />}
-      <RenderWidgets
-        singleStepWidgets={userSignup}
-        {...{ useFormMthods, loading }}
-      />
+      <RenderWidgets dataWidgets={userSignup} {...{ useFormMthods, loading }} />
     </form>
   );
 };

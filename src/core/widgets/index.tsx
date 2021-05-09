@@ -4,3 +4,4 @@ export * from 'core/widgets/ButtonWidget';
 export * from 'core/widgets/PhoneWidget';
 export * from 'core/widgets/DividerWidget';
 export * from 'core/widgets/LinkWidget';
+export * from 'core/widgets/SliderWidget';

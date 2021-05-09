@@ -4,18 +4,18 @@ import { FieldValues, UseFormReturn } from 'react-hook-form';
 import { Container } from 'ui/styles';
 
 const RenderWidgets = ({
-  singleStepWidgets = {},
+  dataWidgets = {},
   useFormMthods,
   loading,
 }: {
-  singleStepWidgets: any;
-  useFormMthods: UseFormReturn<FieldValues>;
+  dataWidgets: any;
+  useFormMthods?: UseFormReturn<FieldValues>;
   loading?: boolean;
 }) => {
   return (
     <Container>
       <RenderSections
-        sections={singleStepWidgets.sections}
+        sections={dataWidgets.sections}
         {...{ useFormMthods, loading }}
       />
     </Container>

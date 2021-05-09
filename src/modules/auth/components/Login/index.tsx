@@ -44,10 +44,7 @@ const Login = ({ loginData }: { loginData: typeof loginSections }) => {
   return (
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
       {messages && <Notifications {...{ messages }} />}
-      <RenderWidgets
-        singleStepWidgets={loginData}
-        {...{ useFormMthods, loading }}
-      />
+      <RenderWidgets dataWidgets={loginData} {...{ useFormMthods, loading }} />
     </form>
   );
 };

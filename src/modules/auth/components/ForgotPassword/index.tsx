@@ -36,7 +36,7 @@ const ForgotPassword = ({
     <form onSubmit={useFormMthods.handleSubmit(onSubmit)}>
       {messages && <Notifications {...{ messages }} />}
       <RenderWidgets
-        singleStepWidgets={forgotPasswordData}
+        dataWidgets={forgotPasswordData}
         {...{ useFormMthods, loading }}
       />
     </form>
