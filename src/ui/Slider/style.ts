@@ -10,12 +10,6 @@ export const SlickContainer = styled.div`
     position: absolute;
     height: 100%;
     top: 0;
-    box-shadow: none;
-    border: none;
-    &:hover {
-      box-shadow: none;
-      border: none;
-    }
   }
   li {
     margin: 0 0.5rem;

@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetServerSidePropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import React from 'react';
 import Headerlinks from 'data/Headerlinks.json';
 import userSignup from 'data/userSignup.json';
@@ -14,7 +14,7 @@ const Signup = ({
   Headerlinks,
   userSignup,
   hairdresserSignup,
-}: InferGetServerSidePropsType<typeof getStaticProps>) => {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const router = useRouter();
   const auth = useAuth();
   React.useEffect(() => {
@@ -36,7 +36,7 @@ const Signup = ({
 
 export default Signup;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: { Headerlinks, userSignup, hairdresserSignup },
   };

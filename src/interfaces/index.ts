@@ -1,6 +1,15 @@
 import { ReactElement, ElementType } from 'react';
 import { FieldValues, UseFormReturn } from 'react-hook-form';
 
+export interface RendererData {
+  sections: {
+    widget: string;
+    images: {
+      uri: string;
+      alt: string;
+    }[];
+  }[];
+}
 export interface Section {
   widget: string;
   label?: string;

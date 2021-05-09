@@ -1,8 +1,7 @@
 import RenderSections from 'core/components/RenderSections';
-import homeData from 'data/homeData.json';
-import { Section } from 'interfaces';
+import { RendererData, Section } from 'interfaces';
 
-const Main = () => {
+const Main = ({ homeData }: { homeData: RendererData }) => {
   return (
     <div>
       <RenderSections sections={(homeData as unknown) as Section[]} />

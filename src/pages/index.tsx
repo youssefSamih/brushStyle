@@ -1,6 +1,7 @@
-import { GetStaticProps, InferGetServerSidePropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
 import Layout from 'ui/Layout';
 import Headerlinks from 'data/Headerlinks.json';
+import homeData from 'data/homeData.json';
 import filterHeaderLink from 'utils/filterHeaderLink';
 import { useAuth } from 'lib/auth';
 import { useRouter } from 'next/router';
@@ -9,7 +10,8 @@ import Main from 'modules/landing/containers/Main';
 
 const Index = ({
   Headerlinks,
-}: InferGetServerSidePropsType<typeof getStaticProps>) => {
+  homeData,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const auth = useAuth();
   const router = useRouter();
   const newHeaderlinks: any = filterHeaderLink(Headerlinks, auth);
@@ -20,15 +22,15 @@ const Index = ({
   }, []);
   return (
     <Layout variant="secondary" links={newHeaderlinks}>
-      <Main />
+      <Main {...{ homeData }} />
     </Layout>
   );
 };
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   return {
-    props: { Headerlinks },
+    props: { Headerlinks, homeData },
   };
 };

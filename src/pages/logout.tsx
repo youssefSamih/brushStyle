@@ -5,8 +5,8 @@ import React from 'react';
 const Logout = () => {
   const auth = useAuth();
   const router = useRouter();
-  auth.signout();
-  if (!auth.user) {
+  auth?.signout();
+  if (!auth?.user) {
     router.replace('/login');
   }
   return <></>;
