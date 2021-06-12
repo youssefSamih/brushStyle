@@ -1,5 +1,6 @@
 import { ReactElement, ElementType } from 'react';
 import { FieldValues, UseFormReturn } from 'react-hook-form';
+import { DefaultTheme, StyledComponent } from 'styled-components';
 
 export interface RendererData {
   sections: {
@@ -10,10 +11,21 @@ export interface RendererData {
     }[];
   }[];
 }
-export interface Section {
+
+export interface SliderProps {
+  images: ImageType[];
+  slidesToShow?: number;
+  showDots?: boolean;
+  slidesToScroll?: number;
+  marginBottom?: number;
+  marginRightSlideItem?: number;
+}
+
+export interface widgetFormProps {
   widget: string;
   label?: string;
   column?: number;
+  columnWidget?: number;
   type?: string;
   placeholder?: string;
   name?: string;
@@ -42,6 +54,7 @@ export interface Section {
     };
   };
 }
+export type Section = widgetFormProps & SliderProps;
 export interface ifProps {
   $eq?: string[];
   defaultValue?: string;
@@ -86,3 +99,10 @@ export interface ImageType {
   uri: string;
   alt?: string;
 }
+
+export type StyledDiv = StyledComponent<
+  'div',
+  DefaultTheme,
+  Record<string, any>,
+  never
+>;

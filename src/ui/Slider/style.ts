@@ -1,7 +1,19 @@
 import styled from 'styled-components';
 
-export const SlickContainer = styled.div`
-  margin-bottom: 11.13rem;
+interface SlickContainerProps {
+  marginBottom?: number;
+  marginRight?: number;
+}
+
+export const SlickContainer = styled.div<SlickContainerProps>`
+  margin-bottom: ${({ marginBottom }) =>
+    marginBottom ? `${marginBottom}rem` : 0};
+  .slick-slide {
+    div {
+      margin-right: ${({ marginRight }) =>
+        marginRight ? `${marginRight}rem` : 0};
+    }
+  }
   width: 100%;
   @media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
     margin-bottom: 1.375rem;

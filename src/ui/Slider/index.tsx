@@ -4,14 +4,17 @@ import Slick, { Settings } from 'react-slick';
 import { ArrowRight } from 'ui/Icons/ArrowRight';
 import { ArrowLeft } from 'ui/Icons/ArrowLeft';
 import Image from 'next/image';
-import { ImageType } from 'interfaces';
+import { ImageType, SliderProps } from 'interfaces';
 import { SlickContainer } from './style';
 
-interface SliderProps {
-  images: ImageType[];
-}
-
-const Slider = ({ images }: SliderProps) => {
+const Slider = ({
+  images,
+  slidesToShow = 1,
+  showDots = true,
+  slidesToScroll = 1,
+  marginBottom,
+  marginRightSlideItem,
+}: SliderProps) => {
   const isMobile = isMaxWidth('sm');
 
   const settings: Settings = {
@@ -35,24 +38,21 @@ const Slider = ({ images }: SliderProps) => {
         height={isMobile ? undefined : '3.75rem'}
       />
     ),
-    dots: true,
+    dots: showDots,
     dotsClass: 'slick-dots slick-thumb',
     infinite: true,
     speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
+    slidesToShow: slidesToShow,
+    slidesToScroll: slidesToScroll,
   };
 
   if (!isMobile) {
     settings.customPaging = (i: number) => (
-      <a>
-        <Image src={images[i].uri} width={91} height={55} loading="lazy" />
-      </a>
+      <Image src={images[i].uri} width={91} height={55} loading="lazy" />
     );
   }
-  settings;
   return (
-    <SlickContainer>
+    <SlickContainer {...{ marginBottom }} marginRight={marginRightSlideItem}>
       <Slick {...settings}>
         {images.map(({ uri, alt }: ImageType, i) => (
           <div key={i}>

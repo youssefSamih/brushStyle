@@ -1,10 +1,40 @@
 [
   {
     "widget": "SliderWidget",
+    "marginBottom": 5.4,
     "images": [
       { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
       { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
       { "uri": "https://via.placeholder.com/1000x600", "alt": "test" }
+    ]
+  },
+  {
+    "widget": "ItemWrapper",
+    "sections": [
+      {
+        "widget": "TextAndTitleWidget",
+        "columnWidget": 2
+      },
+      {
+        "widget": "SliderWidget",
+        "slidesToShow": 3,
+        "columnWidget": 10,
+        "marginRightSlideItem": 1,
+        "showDots": false,
+        "images": [
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" }
+        ]
+      }
     ]
   }
 ]
