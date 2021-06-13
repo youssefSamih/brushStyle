@@ -85,3 +85,21 @@
   font-style: italic;
   font-display: swap;
 }
+
+@font-face {
+  font-family: 'Freight Big Bold';
+  src: url('./fonts/Freight-BigBold.woff2') format('woff2'),
+    url('./fonts/Freight-BigBold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('./fonts/Lato-Regular.woff2') format('woff2'),
+    url('./fonts/Lato-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

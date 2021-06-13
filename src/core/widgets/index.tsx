@@ -7,3 +7,4 @@ export * from 'core/widgets/LinkWidget';
 export * from 'core/widgets/SliderWidget';
 export * from 'core/widgets/ItemWrapper';
 export * from 'core/widgets/TextAndTitleWidget';
+export * from 'core/widgets/AccordionWidget';

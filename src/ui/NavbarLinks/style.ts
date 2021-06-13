@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { ListStyleProps } from 'ui/interfaces';
 
 export const ItemListText = styled.a<ListStyleProps>`
-  color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
+  font-family: 'Lato-Regular';
+  color: ${({ theme }) => theme.colors.white};
   ${({ forSidebarLinks }) =>
     forSidebarLinks
       ? `

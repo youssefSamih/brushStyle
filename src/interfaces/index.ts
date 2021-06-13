@@ -106,3 +106,12 @@ export type StyledDiv = StyledComponent<
   Record<string, any>,
   never
 >;
+
+export interface AccordionSection {
+  title: string;
+  text: string;
+}
+
+export interface PanelProps {
+  Display?: boolean;
+}

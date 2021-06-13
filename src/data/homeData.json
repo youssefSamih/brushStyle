@@ -13,7 +13,9 @@
     "sections": [
       {
         "widget": "TextAndTitleWidget",
-        "columnWidget": 2
+        "columnWidget": 2,
+        "title": "Découvrez nos Professionnels",
+        "text": "Lorem ipsum"
       },
       {
         "widget": "SliderWidget",
@@ -33,6 +35,58 @@
           { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
           { "uri": "https://via.placeholder.com/1000x600", "alt": "test" },
           { "uri": "https://via.placeholder.com/1000x600", "alt": "test" }
+        ]
+      }
+    ]
+  },
+  {
+    "widget": "ItemWrapper",
+    "backgroundColor": "rgb(18, 18, 18)",
+    "sections": [
+      {
+        "widget": "SliderWidget",
+        "slidesToShow": 1,
+        "columnWidget": 6,
+        "showDots": false,
+        "images": [
+          { "uri": "https://via.placeholder.com/1000x600", "alt": "test" }
+        ]
+      },
+      {
+        "widget": "TextAndTitleWidget",
+        "columnWidget": 6,
+        "marginRight": 1,
+        "title": "INTRODUCTION",
+        "Color": "white",
+        "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed ornare erat. Etiam varius velit nec metus pretium commodo. Curabitur ut velit justo. Donec ut justo quis tortor pellentesque fermentum. Morbi eu porttitor nulla. Ut placerat venenatis vulputate. Sed in massa eget ex dapibus vestibulum. Maecenas viverra convallis turpis, et pharetra tellus viverra nec. Vestibulum vel sapien gravida, blandit elit a, mollis velit Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p><p>Phasellus eros quam, dictum sed vulputate et, feugiat nec erat. Curabitur ac justo libero. Etiam efficitur purus orci. Aenean faucibus tellus in diam faucibus consectetur. Nam malesuada cursus nulla, a molestie ligula faucibus vel. Etiam in porta dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id sagittis dui. Maecenas accumsan ligula eget enim consectetur lacinia. Etiam mattis, purus vitae vehicula pretium, augue nulla tristique tellus, in finibus purus nisl nec nisi. Maecenas viverra convallis turpis, et pharetra tellus viverra nec. Vestibulum vel sapien gravida, blandit elit a, mollis velit.</p>"
+      }
+    ]
+  },
+  {
+    "widget": "ItemWrapper",
+    "sections": [
+      {
+        "widget": "TextAndTitleWidget",
+        "columnWidget": 3,
+        "title": "Les questions fréquentes",
+        "textAlign": "end"
+      },
+      {
+        "widget": "AccordionWidget",
+        "columnWidget": 8,
+        "data": [
+          {
+            "title": "Section 1",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          },
+          {
+            "title": "Section 2",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          },
+          {
+            "title": "Section 3",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          }
         ]
       }
     ]
